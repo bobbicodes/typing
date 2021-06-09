@@ -3,9 +3,9 @@
    [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
- ::name
+ ::text
  (fn [db]
-   (:name db)))
+   (:text db)))
 
 (re-frame/reg-sub
  ::cursor-pos

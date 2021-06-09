@@ -16,14 +16,18 @@
                     {:keyCode 76} ;; l
                     {:keyCode 76} ;; l
                     {:keyCode 79} ;; o
-                    ]]]
+                    ]]
+                  [[::events/advance-cursor "g"]
+                   [{:keyCode 71}] ;; g
+                   ]]
 
      :clear-keys
      [[{:keyCode 27} ;; escape
        ]]}]))
 
 (defn display-re-pressed-example []
-  (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])]
+  (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])
+        pos (re-frame/subscribe [::subs/cursor-pos])]
     [:div
 
      [:span {:style {:font-size "40px"
@@ -39,10 +43,8 @@
 
      [:p
       [:span
-       "After clicking the button, you will have defined a rule that
-       will display a message when you type "]
-      [:strong [:code "hello"]]
-      [:span ". So go ahead, try it out!"]]
+       "Cursor is at position "]
+      [:strong (str @pos)]]
 
      (when-let [rpe @re-pressed-example]
        [:div
@@ -55,9 +57,12 @@
         rpe])]))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
+  (let [text (re-frame/subscribe [::subs/text])]
     [:div
      [:h1
-      "Hello from " @name]
+      "Re-pressed Typing Test"]
+     [:p {:style {:font-size "40px"
+                  :font-family "Georgia"}}
+      @text]
      [display-re-pressed-example]
      ]))
