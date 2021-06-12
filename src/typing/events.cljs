@@ -21,6 +21,11 @@
    (assoc db :text value)))
 
 (re-frame/reg-event-db
+ ::set-current-key
+ (fn [db [_ value]]
+   (assoc db :current-key value)))
+
+(re-frame/reg-event-db
  ::advance-cursor
  (fn [db [_ value]]
    (update db :cursor-pos inc)))

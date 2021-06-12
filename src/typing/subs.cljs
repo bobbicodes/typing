@@ -13,6 +13,11 @@
    (:cursor-pos db)))
 
 (re-frame/reg-sub
+ ::current-key
+ (fn [db]
+   (:current-key db)))
+
+(re-frame/reg-sub
  ::re-pressed-example
  (fn [db _]
    (:re-pressed-example db)))
