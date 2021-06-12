@@ -16,6 +16,11 @@
    (assoc db :re-pressed-example value)))
 
 (re-frame/reg-event-db
+ ::set-text
+ (fn [db [_ value]]
+   (assoc db :text value)))
+
+(re-frame/reg-event-db
  ::advance-cursor
  (fn [db [_ value]]
    (update db :cursor-pos inc)))

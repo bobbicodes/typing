@@ -4,6 +4,7 @@
    [re-pressed.core :as rp]
    [typing.events :as events]
    [typing.subs :as subs]
+   [typing.words :as words]
    [goog.string :as gstring]
    ))
 
@@ -25,21 +26,29 @@
      [[{:keyCode 27} ;; escape
        ]]}]))
 
+(defn rand-text [n]
+  (apply str (interpose " " (take n (shuffle words/common-words)))))
+
 (defn display-re-pressed-example []
   (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])
-        pos (re-frame/subscribe [::subs/cursor-pos])]
+        text (re-frame/subscribe [::subs/text])
+        pos (re-frame/subscribe [::subs/cursor-pos])
+        before (apply str (take @pos @text))
+        after (apply str (drop (inc @pos) @text))]
     [:div
 
      [:span {:style {:font-size "40px"
-                     :font-family "Georgia"}} "There's the text before the cursor,"]
-[:span#cursor {:style {:font-size "40px"}}  (gstring/unescapeEntities "&nbsp;")]
-[:span {:style {:font-size "40px"
-                :font-family "Georgia"}} "and the text after the cursor"]
+                     :font-family "Georgia"}} before]
+     [:span#cursor {:style {:font-size "40px"}}  (if (= " " (nth @text @pos))
+                                                   (gstring/unescapeEntities "&nbsp;")
+                                                   (nth @text @pos))]
+     [:span {:style {:font-size "40px"
+                     :font-family "Georgia"}} after]
 
-     [:div
+     #_[:div
       [:button
-       {:on-click dispatch-keydown-rules}
-       "set keydown rules"]]
+       {:on-click (re-frame/dispatch [::events/set-text (rand-text 10)])}
+       "Re-pressed text"]]
 
      [:p
       [:span
@@ -52,9 +61,10 @@
                  :background-color "lightgrey"
                  :border           "solid 1px grey"
                  :border-radius    "4px"
-                 :margin-top       "16px"
-                 }}
+                 :margin-top       "16px"}}
         rpe])]))
+
+
 
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])]
@@ -63,6 +73,8 @@
       "Re-pressed Typing Test"]
      [:p {:style {:font-size "40px"
                   :font-family "Georgia"}}
-      @text]
+      ]
      [display-re-pressed-example]
      ]))
+
+@(re-frame/subscribe [::subs/text])
