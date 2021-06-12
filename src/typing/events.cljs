@@ -3,6 +3,7 @@
    [re-frame.core :as re-frame]
    [re-pressed.core :as rp]
    [typing.db :as db]
+   [typing.subs :as subs]
    ))
 
 (re-frame/reg-event-db
@@ -23,7 +24,12 @@
 (re-frame/reg-event-db
  ::set-current-key
  (fn [db [_ value]]
-   (assoc db :current-key value)))
+   (assoc db 
+          :current-key value
+          :cursor-pos (if (= value (nth @(re-frame/subscribe [::subs/text]) @(re-frame/subscribe [::subs/cursor-pos])))
+                        (inc @(re-frame/subscribe [::subs/cursor-pos]))
+                        @(re-frame/subscribe [::subs/cursor-pos]))
+          )))
 
 (re-frame/reg-event-db
  ::advance-cursor
