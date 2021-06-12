@@ -1,6 +1,11 @@
-(ns typing.db)
+(ns typing.db
+  (:require
+   [typing.words :as words]))
+
+(defn rand-text [n]
+  (apply str (interpose " " (take n (shuffle words/common-words)))))
 
 (def default-db
-  {:text "There's the text before the cursor, and the text after the cursor"
+  {:text (rand-text 10)
    :current-key nil
    :cursor-pos 0})

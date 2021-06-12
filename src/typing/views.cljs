@@ -19,9 +19,6 @@
                     {:keyCode 76} ;; l
                     {:keyCode 79} ;; o
                     ]]
-                  [[::events/advance-cursor "g"]
-                   [{:keyCode 71}] ;; g
-                   ]
                    [[::events/set-current-key " "] [{:keyCode 32}]]
                   [[::events/set-current-key "a"] [{:keyCode 65}]]
                   [[::events/set-current-key "b"] [{:keyCode 66}]]

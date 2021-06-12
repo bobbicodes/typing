@@ -160,3 +160,11 @@ cljs꞉typing.views꞉> 
 cljs꞉typing.views꞉> 
 "version trade course all family itself vacation page engine milk"
 cljs꞉typing.views꞉> 
+"There's the text before the cursor, and the text after the cursor"
+cljs꞉typing.events꞉> 
+"candidate neighborhood desire attach shift athletic lose them fishing rapid"
+cljs꞉typing.events꞉> 
+"andidate neighborhood desire attach shift athletic lose them fishing rapid"
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.events꞉> 
