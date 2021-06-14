@@ -7,7 +7,8 @@ body {
     position: relative;
     color: #ffcc00;
     text-shadow: 0 0 2px #100c0f, 0 0 3px #ffaa0099, 0 0 5px #ffaa0099, 0 0 10px #ffaa0099;
-    
+    line-height: 0.8;
+    cursor: none;
   }
   
   h1 {
@@ -26,6 +27,10 @@ body {
     font-style: italic;
   }
   
+p {
+  cursor: none;
+}
+
   label {
     font-style: italic;
   }
@@ -70,8 +75,6 @@ body {
 /* blinking cursor */
 #cursor {
   background: #fc199a;
-  line-height: 17px;
-  margin-left: 3px;
   -webkit-animation: blink 0.8s infinite;
   width: 7px;
   height: 15px;

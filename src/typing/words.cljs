@@ -27,3 +27,18 @@
     "vacation" "valley" "valuable" "value" "variable" "variation" "variety" "various" "vary" "vast" "vegetable" "vehicle" "venture" "version" "versus" "very" "vessel" "veteran" "via" "victim" "victory" "video" "view" "viewer" "village" "violate" "violation" "violence" "violent" "virtually" "virtue" "virus" "visible" "vision" "visit" "visitor" "visual" "vital" "voice" "volume" "volunteer" "vote" "voter" "vs" "vulnerable"
     "wage" "wait" "wake" "walk" "wall" "wander" "want" "war" "warm" "warn" "warning" "wash" "waste" "watch" "water" "wave" "way" "we" "weak" "wealth" "wealthy" "weapon" "wear" "weather" "wedding" "week" "weekend" "weekly" "weigh" "weight" "welcome" "welfare" "well" "west" "western" "wet" "what" "whatever" "wheel" "when" "whenever" "where" "whereas" "whether" "which" "while" "whisper" "white" "who" "whole" "whom" "whose" "why" "wide" "widely" "widespread" "wife" "wild" "will" "willing" "win" "wind" "window" "wine" "wing" "winner" "winter" "wipe" "wire" "wisdom" "wise" "wish" "with" "withdraw" "within" "without" "witness" "woman" "wonder" "wonderful" "wood" "wooden" "word" "work" "worker" "working" "works" "workshop" "world" "worried" "worry" "worth" "would" "wound" "wrap" "write" "writer" "writing" "wrong"
     "yard" "yeah" "year" "yell" "yellow" "yes" "yesterday" "yet" "yield" "you" "young" "your" "yours" "yourself" "youth" "zone"})
+
+(def letters #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
+
+(clojure.set/difference letters #{"e" "t" "r" "s"})
+
+(defn exclude-letters [letter-set words]
+  (filter (fn [word]
+            (not-any?
+             #(clojure.string/includes? word %)
+             letter-set))
+          words))
+
+;(exclude-letters (clojure.set/difference letters #{"e" "t" "r" "s"}) common-words)
+
+;(remove #(exclude-letters #{"x" "y" "z"} common-words))

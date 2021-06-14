@@ -168,3 +168,908 @@ cljs꞉typing.events꞉> 
 cljs꞉typing.events꞉> 
 nil
 cljs꞉typing.events꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:10
+ Use of undeclared Var typing.views/
+--------------------------------------------------------------------------------
+
+cljs꞉typing.views꞉> 
+#object[now]
+cljs꞉typing.views꞉> 
+"function now() { [native code] }"
+cljs꞉typing.views꞉> 
+#object[now]
+cljs꞉typing.views꞉> 
+"function now() { [native code] }"
+cljs꞉typing.views꞉> 
+"function now() { [native code] }"
+cljs꞉typing.views꞉> 
+#object[now]
+cljs꞉typing.views꞉> 
+#object[toString]
+cljs꞉typing.views꞉> 
+#object[Function]
+cljs꞉typing.views꞉> 
+:repl/exception!
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Date.now is not a constructor
+cljs꞉typing.views꞉> 
+1623551783979
+cljs꞉typing.views꞉> 
+1623551788915
+cljs꞉typing.views꞉> 
+1623551796643
+cljs꞉typing.views꞉> 
+1623551808471
+cljs꞉typing.views꞉> 
+1623552508525
+cljs꞉typing.views꞉> 
+1623558087713
+cljs꞉typing.events꞉> 
+:repl/exception!
+; 
+; Execution error (Error) at (<cljs repl>:1).
+No protocol method IDeref.-deref defined for type undefined: 
+cljs꞉typing.events꞉> 
+:repl/exception!
+; 
+; Execution error (Error) at (<cljs repl>:1).
+No protocol method IDeref.-deref defined for type undefined: 
+cljs꞉typing.events꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+ Use of undeclared Var typing.views/presses
+--------------------------------------------------------------------------------
+
+cljs꞉typing.views꞉> 
+[1623565740394
+ 1623565742821
+ 1623565744798
+ 1623565746961
+ 1623565781749
+ 1623565782750
+ 1623565784147
+ 1623565784742
+ 1623565785374]
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: 9 is not ISeqable
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: 9 is not ISeqable
+cljs꞉typing.views꞉> 
+9
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: No item 9 in vector of length 9
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: NaN is not ISeqable
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: NaN is not ISeqable
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: NaN is not ISeqable
+cljs꞉typing.views꞉> 
+(0 1 2 3 4 5 6 7 8)
+cljs꞉typing.views꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: No item 9 in vector of length 9
+cljs꞉typing.views꞉> 
+(2427 1977 2163 34788 1001 1397 595 632)
+cljs꞉typing.views꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+ Use of undeclared Var typing.events/presses
+--------------------------------------------------------------------------------
+
+cljs꞉typing.events꞉> 
+"snow brown principle handle real period scale kill show developing"
+cljs꞉typing.events꞉> 
+[]
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.events꞉> 
+1623617158933
+cljs꞉typing.events꞉> 
+"fix practical expose internal proposal analyst settlement estate number plan"
+cljs꞉typing.events꞉> 
+[1623621602775 1623621603556]
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.events꞉> 
+0
+cljs꞉typing.events꞉> 
+45
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.events꞉> 
+[1623623434829 1623623435818 1623623436151 1623623436579 1623623436932 1623623437331 1623623437641 1623623439078]
+cljs꞉typing.events꞉> 
+(355 379 369 329 302 302 217 259 245 193 200 260 552 1259 385 350 197 221 200 315 287 591 180 220 256 221 205)
+cljs꞉typing.events꞉> 
+(355
+ 379
+ 369
+ 329
+ 302
+ 302
+ 217
+ 259
+ 245
+ 193
+ 200
+ 260
+ 552
+ 1259
+ 385
+ 350
+ 197
+ 221
+ 200
+ 315
+ 287
+ 591
+ 180
+ 220
+ 256
+ 221
+ 205
+ 212346
+ 890
+ 390
+ 308
+ 226
+ 194)
+cljs꞉typing.events꞉> 
+(355
+ 379
+ 369
+ 329
+ 302
+ 302
+ 217
+ 259
+ 245
+ 193
+ 200
+ 260
+ 552
+ 1259
+ 385
+ 350
+ 197
+ 221
+ 200
+ 315
+ 287
+ 591
+ 180
+ 220
+ 256
+ 221
+ 205
+ 212346
+ 890
+ 390
+ 308
+ 226
+ 194)
+cljs꞉typing.events꞉> 
+(355
+ 379
+ 369
+ 329
+ 302
+ 302
+ 217
+ 259
+ 245
+ 193
+ 200
+ 260
+ 552
+ 1259
+ 385
+ 350
+ 197
+ 221
+ 200
+ 315
+ 287
+ 591
+ 180
+ 220
+ 256
+ 221
+ 205
+ 212346
+ 890
+ 390
+ 308
+ 226
+ 194
+ 238849
+ 1222
+ 390
+ 472
+ 767
+ 176
+ 217
+ 289
+ 825
+ 217
+ 304)
+cljs꞉typing.events꞉> 
+(281 523 415 488)
+cljs꞉typing.events꞉> 
+(281 523 415 488 9891 433 411 184 646)
+cljs꞉typing.events꞉> 
+(281 523 415 488 433 411 184 646)
+cljs꞉typing.events꞉> 
+"aide dark works seed adapt efficiency gradually lip heavy recording"
+cljs꞉typing.views꞉> 
+"aide dark works seed adapt efficiency gradually"
+cljs꞉typing.views꞉> 
+"objective prosecutor clinic nevertheless anymore "
+cljs꞉typing.views꞉> 
+" "
+cljs꞉typing.views꞉> 
+"e"
+cljs꞉typing.views꞉> 
+"set development maintenance recover female"
+cljs꞉typing.views꞉> 
+"set development maintenance recover female "
+cljs꞉typing.views꞉> 
+"factor abuse spot adopt spirit debate advance"
+cljs꞉typing.views꞉> 
+" "
+cljs꞉typing.views꞉> 
+"factor abuse spot adopt spirit debate advance"
+cljs꞉typing.views꞉> 
+"storm hero there"
+cljs꞉typing.views꞉> 
+#object[reagent.ratom.Reaction {:val "factor abuse spot adopt spirit debate advance storm hero there"}]
+cljs꞉typing.views꞉> 
+"factor abuse spot adopt spirit debate advance storm hero there"
+cljs꞉typing.views꞉> 
+" "
+cljs꞉typing.views꞉> 
+#'typing.views/display-re-pressed-example
+cljs꞉typing.views꞉> 
+nil
+cljs꞉typing.words꞉> 
+#'typing.words/common-words
+cljs꞉typing.words꞉> 
+("freeze"
+ "seize"
+ "emphasize"
+ "squeeze"
+ "dozen"
+ "criticize"
+ "crazy"
+ "analyze"
+ "magazine"
+ "citizen"
+ "amazing"
+ "characterize"
+ "zone"
+ "gaze"
+ "recognize"
+ "size"
+ "organization"
+ "realize"
+ "horizon"
+ "organize")
+cljs꞉typing.words꞉> 
+("convince"
+ "float"
+ "sweet"
+ "studio"
+ "adjust"
+ "mortgage"
+ "abandon"
+ "ignore"
+ "release"
+ "technology"
+ "million"
+ "hole"
+ "combination"
+ "flower"
+ "total"
+ "blue"
+ "come"
+ "ability"
+ "trail"
+ "respondent"
+ "principal"
+ "sound"
+ "personality"
+ "CEO"
+ "low"
+ "expectation"
+ "stop"
+ "behavior"
+ "else"
+ "table"
+ "moreover"
+ "dare"
+ "cool"
+ "offense"
+ "emission"
+ "detailed"
+ "senior"
+ "electric"
+ "success"
+ "surprised"
+ "football"
+ "skin"
+ "violation"
+ "radical"
+ "bread"
+ "dad"
+ "happen"
+ "look"
+ "consumer"
+ "summer"
+ ...)
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :fn-arity -----------------------------------------------------
+;  Resource: <eval>:2:3
+ Wrong number of args (1) passed to cljs.core/not-any?
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+:repl/exception!
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Cannot read property 'call' of undefined
+cljs꞉typing.words꞉> 
+#'typing.words/common-words
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :fn-arity -----------------------------------------------------
+;  Resource: <eval>:2:3
+ Wrong number of args (1) passed to cljs.core/not-any?
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+#'typing.words/exclude-letters
+cljs꞉typing.words꞉> 
+:repl/exception!
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+str.indexOf is not a function
+cljs꞉typing.words꞉> 
+true
+cljs꞉typing.words꞉> 
+false
+cljs꞉typing.words꞉> 
+true
+cljs꞉typing.words꞉> 
+("convince"
+ "float"
+ "sweet"
+ "studio"
+ "adjust"
+ "mortgage"
+ "abandon"
+ "ignore"
+ "release"
+ "technology"
+ "million"
+ "hole"
+ "combination"
+ "flower"
+ "total"
+ "blue"
+ "come"
+ "ability"
+ "trail"
+ "respondent"
+ "principal"
+ "sound"
+ "personality"
+ "CEO"
+ "low"
+ "expectation"
+ "stop"
+ "behavior"
+ "else"
+ "table"
+ "moreover"
+ "dare"
+ "cool"
+ "offense"
+ "emission"
+ "detailed"
+ "senior"
+ "electric"
+ "success"
+ "surprised"
+ "football"
+ "skin"
+ "violation"
+ "radical"
+ "bread"
+ "dad"
+ "happen"
+ "look"
+ "consumer"
+ "summer"
+ ...)
+cljs꞉typing.words꞉> 
+("convince"
+ "float"
+ "sweet"
+ "studio"
+ "adjust"
+ "mortgage"
+ "abandon"
+ "ignore"
+ "release"
+ "technology"
+ "million"
+ "hole"
+ "combination"
+ "flower"
+ "total"
+ "blue"
+ "come"
+ "ability"
+ "trail"
+ "respondent"
+ "principal"
+ "sound"
+ "personality"
+ "CEO"
+ "low"
+ "expectation"
+ "stop"
+ "behavior"
+ "else"
+ "table"
+ "moreover"
+ "dare"
+ "cool"
+ "offense"
+ "emission"
+ "detailed"
+ "senior"
+ "electric"
+ "success"
+ "surprised"
+ "football"
+ "skin"
+ "violation"
+ "radical"
+ "bread"
+ "dad"
+ "happen"
+ "look"
+ "consumer"
+ "summer"
+ ...)
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :fn-arity -----------------------------------------------------
+;  Resource: <eval>:2:11
+ Wrong number of args (3) passed to cljs.core/not-any?
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+("convince"
+ "float"
+ "sweet"
+ "studio"
+ "adjust"
+ "mortgage"
+ "abandon"
+ "ignore"
+ "release"
+ "technology"
+ "million"
+ "hole"
+ "combination"
+ "flower"
+ "total"
+ "blue"
+ "come"
+ "ability"
+ "trail"
+ "respondent"
+ "principal"
+ "sound"
+ "personality"
+ "CEO"
+ "low"
+ "expectation"
+ "stop"
+ "behavior"
+ "else"
+ "table"
+ "moreover"
+ "dare"
+ "cool"
+ "offense"
+ "emission"
+ "detailed"
+ "senior"
+ "electric"
+ "success"
+ "surprised"
+ "football"
+ "skin"
+ "violation"
+ "radical"
+ "bread"
+ "dad"
+ "happen"
+ "look"
+ "consumer"
+ "summer"
+ ...)
+cljs꞉typing.words꞉> 
+("studio"
+ "million"
+ "sound"
+ "CEO"
+ "low"
+ "cool"
+ "skin"
+ "look"
+ "ugly"
+ "floor"
+ "window"
+ "us"
+ "drug"
+ "ring"
+ "lot"
+ "highly"
+ "within"
+ "dust"
+ "throughout"
+ "rub"
+ "wish"
+ "light"
+ "doubt"
+ "cloud"
+ "his"
+ "crisis"
+ "him"
+ "book"
+ "mood"
+ "blood"
+ "kiss"
+ "thing"
+ "fit"
+ "visitor"
+ "British"
+ "dog"
+ "humor"
+ "list"
+ "DNA"
+ "origin"
+ "lucky"
+ "AM"
+ "story"
+ "cotton"
+ "bomb"
+ "running"
+ "right"
+ "stock"
+ "word"
+ "civil"
+ ...)
+cljs꞉typing.words꞉> 
+("sound"
+ "CEO"
+ "low"
+ "cool"
+ "look"
+ "ugly"
+ "floor"
+ "us"
+ "drug"
+ "lot"
+ "dust"
+ "throughout"
+ "rub"
+ "doubt"
+ "cloud"
+ "book"
+ "mood"
+ "blood"
+ "dog"
+ "humor"
+ "DNA"
+ "lucky"
+ "AM"
+ "story"
+ "cotton"
+ "bomb"
+ "stock"
+ "word"
+ "who"
+ "court"
+ "buck"
+ "worth"
+ "God"
+ "shout"
+ "country"
+ "body"
+ "of"
+ "custom"
+ "fully"
+ "toy"
+ "off"
+ "food"
+ "rock"
+ "tough"
+ "nor"
+ "tooth"
+ "gold"
+ "joy"
+ "forth"
+ "two"
+ ...)
+cljs꞉typing.words꞉> 
+("CEO"
+ "ugly"
+ "us"
+ "drug"
+ "dust"
+ "rub"
+ "DNA"
+ "lucky"
+ "AM"
+ "buck"
+ "fully"
+ "bunch"
+ "burn"
+ "dry"
+ "gun"
+ "by"
+ "try"
+ "shut"
+ "jury"
+ "Ms"
+ "myth"
+ "why"
+ "thus"
+ "hungry"
+ "run"
+ "church"
+ "stuff"
+ "just"
+ "luck"
+ "cry"
+ "fun"
+ "my"
+ "bus"
+ "truly"
+ "lunch"
+ "fund"
+ "buy"
+ "n't"
+ "full"
+ "busy"
+ "trust"
+ "shrug"
+ "must"
+ "bury"
+ "study"
+ "truck"
+ "Mr"
+ "but"
+ "mm-hmm"
+ "TV"
+ ...)
+cljs꞉typing.words꞉> 
+("CEO"
+ "ugly"
+ "us"
+ "drug"
+ "dust"
+ "rub"
+ "DNA"
+ "lucky"
+ "AM"
+ "buck"
+ "fully"
+ "bunch"
+ "burn"
+ "dry"
+ "gun"
+ "by"
+ "try"
+ "shut"
+ "jury"
+ "Ms"
+ "myth"
+ "why"
+ "thus"
+ "hungry"
+ "run"
+ "church"
+ "stuff"
+ "just"
+ "luck"
+ "cry"
+ "fun"
+ "my"
+ "bus"
+ "truly"
+ "lunch"
+ "fund"
+ "buy"
+ "n't"
+ "full"
+ "busy"
+ "trust"
+ "shrug"
+ "must"
+ "bury"
+ "study"
+ "truck"
+ "Mr"
+ "but"
+ "mm-hmm"
+ "TV"
+ ...)
+cljs꞉typing.words꞉> 
+#'typing.words/exclude-letters
+cljs꞉typing.words꞉> 
+("convince"
+ "float"
+ "sweet"
+ "studio"
+ "adjust"
+ "mortgage"
+ "abandon"
+ "ignore"
+ "release"
+ "million"
+ "hole"
+ "combination"
+ "flower"
+ "total"
+ "blue"
+ "come"
+ "trail"
+ "respondent"
+ "principal"
+ "sound"
+ "CEO"
+ "low"
+ "stop"
+ "behavior"
+ "else"
+ "table"
+ "moreover"
+ "dare"
+ "cool"
+ "offense"
+ "emission"
+ "detailed"
+ "senior"
+ "electric"
+ "success"
+ "surprised"
+ "football"
+ "skin"
+ "violation"
+ "radical"
+ "bread"
+ "dad"
+ "happen"
+ "look"
+ "consumer"
+ "summer"
+ "boat"
+ "floor"
+ "window"
+ "fan"
+ ...)
+cljs꞉typing.words꞉> 
+#'typing.words/letters
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:4
+ Use of undeclared Var typing.words/a
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :fn-arity -----------------------------------------------------
+;  Resource: <eval>:1:1
+ Wrong number of args (2) passed to cljs.core/seq
+--------------------------------------------------------------------------------
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:8
+ Use of undeclared Var typing.words/a
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:17
+ Use of undeclared Var typing.words/a
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:9
+ Use of undeclared Var typing.words/a
+--------------------------------------------------------------------------------
+
+cljs꞉typing.words꞉> 
+"a"
+cljs꞉typing.words꞉> 
+#{"s" "e" "t" "r"}
+cljs꞉typing.words꞉> 
+#{"d" "n" "z" "w" "f" "q" "p" "j" "x" "v" "a" "i" "k" "b" "y" "g" "l" "u" "h" "m" "o" "c"}
+cljs꞉typing.words꞉> 
+("CEO" "see" "DNA" "AM" "Ms" "rest" "tree" "Mr" "TV" "PC" "stress" "set" "street" "I" "Mrs" "AIDS" "test" "PM")
+cljs꞉typing.words꞉> 
+:repl/exception!
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Cannot read property 'call' of undefined
+cljs꞉typing.words꞉> 
+:repl/exception!
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Cannot read property 'call' of undefined
+cljs꞉typing.words꞉> 
+("CEO" "see" "DNA" "AM" "Ms" "rest" "tree" "Mr" "TV" "PC" "stress" "set" "street" "I" "Mrs" "AIDS" "test" "PM")
+cljs꞉typing.words꞉> 
+#object[Function]
+cljs꞉typing.words꞉> 
+0
+cljs꞉typing.views꞉> 
+[1623656395649
+ 1623656395730
+ 1623656395788
+ 1623656399361
+ 1623656399397
+ 1623656400265
+ 1623656400748
+ 1623656401030
+ 1623656401228
+ 1623656401514
+ 1623656401806
+ 1623656402189
+ 1623656402424
+ 1623656402702
+ 1623656403327
+ 1623656403938
+ 1623656404467]
+cljs꞉typing.views꞉> 
+(81 58 36 868 483 282 198 286 292 383 235 278 625 611 529)
+cljs꞉typing.views꞉> 
