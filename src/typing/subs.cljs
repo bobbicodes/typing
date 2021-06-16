@@ -22,10 +22,11 @@
  (fn [db]
    (:presses db)))
 
+
 (re-frame/reg-sub
  ::deltas
  (fn [db]
-   (let [presses (:presses db)]
+   (let [presses (reverse (take 100 (reverse (:presses db))))]
      (remove #(> % 1000)
              (for [x (range (dec (count presses)))]
                (- (nth presses (inc x))
@@ -34,7 +35,17 @@
 (re-frame/reg-sub
  ::ave-wpm
  (fn [db]
-   (:ave-wpm db)))
+   (let [presses (reverse (take 100 (reverse (:presses db))))
+         deltas (remove #(> % 1000)
+                        (for [x (range (dec (count presses)))]
+                          (- (nth presses (inc x))
+                             (nth presses x))))]
+     (/ (.round js/Math (* 100 (* 60 (/ (/ 1000 (/ (reduce + deltas)
+                                                   (count deltas)))
+                                        5))))
+        100))
+   
+   ))
 
 (re-frame/reg-sub
  ::current-key

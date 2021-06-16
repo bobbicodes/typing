@@ -85,7 +85,7 @@
 (defn rand-text [n]
   (str (apply str (interpose " " (take n (shuffle words/common-words)))) " "))
 
-@(re-frame/subscribe [::subs/deltas])
+(count (take 100 @(re-frame/subscribe [::subs/presses])))
 
 (defn display-re-pressed-example []
   (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])
@@ -146,14 +146,29 @@
                              (count @presses)))
                   5))]]
      
-     [:p
+     #_[:p
       [:span
        "wpm: "]
-      [:strong (str (.round js/Math (* 60 (/ (/ 1000 (/ (reduce + @(re-frame/subscribe [::subs/deltas]))
-                                        (count @presses)))
-                             5))))]]
+      [:strong (str (/ (.round js/Math (* 100 (* 60 (/ (/ 1000 (/ (reduce + @(re-frame/subscribe [::subs/deltas]))
+                                                                  (count @(re-frame/subscribe [::subs/deltas]))))
+                                                       5))))
+                       100))]]
 
+[:p
+ [:span
+  "wpm: "]
+ [:strong (str @(re-frame/subscribe [::subs/ave-wpm]))]]
+#_[:p
+ [:span
+  "presses: "]
+ [:strong (str @(re-frame/subscribe [::subs/presses]))]]
  
+#_[:p
+ [:span
+  "deltas: "]
+ [:strong (str @(re-frame/subscribe [::subs/deltas])
+                  )]]
+
      
      (when-let [rpe @re-pressed-example]
        [:div
@@ -164,6 +179,19 @@
                  :margin-top       "16px"}}
         rpe])]))
 
+(let [presses (take 100 (reverse @(re-frame/subscribe [::subs/presses])))]
+  (remove #(> % 1000)
+          (for [x (range (dec (count presses)))]
+            (- (nth presses (inc x))
+               (nth presses x)))))
+@(re-frame/subscribe [::subs/presses])
+(defn circle [c r]
+  [:svg {:width    "20%"
+           :view-box (str "-50 -52 100 50")}
+  [:g
+   [:circle {:cx c :cy c :r r :fill "none" :stroke "black"}]
+   [:line {:x1 10 :y1 -30 :x2 0 :y2 0 :stroke "green" :stroke-width 10}]]])
+
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])]
     [:div
@@ -172,7 +200,9 @@
      [:p {:style {:font-size "40px"
                   :font-family "Georgia"}}]
      (dispatch-keydown-rules)
-     [display-re-pressed-example]]))
+     [display-re-pressed-example]
+     ;[circle 0 50]
+     ]))
 
 @(re-frame/subscribe [::subs/text])
 (js/Date.now)
