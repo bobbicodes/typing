@@ -1,6 +1,6 @@
 # Re-pressed Text
 
-A [re-frame](https://github.com/day8/re-frame) application for learning one-handed typing.
+A [re-frame](https://github.com/day8/re-frame) application for learning typing.
 
 ## Getting Started
 
