@@ -56,7 +56,7 @@
                             (if (= "" (apply str (drop (inc @(re-frame/subscribe [::subs/cursor-pos])) ; are we at the end?
                                                        @(re-frame/subscribe [::subs/text]))))
                               (do (re-frame/dispatch [::set-text @(re-frame/subscribe [::subs/text2])])
-                                  (re-frame/dispatch [::set-text2 (rand-text 5)])
+                                  (re-frame/dispatch [::set-text2 (rand-text 4)])
                                   0) ; reset counter and update text
                               (inc @(re-frame/subscribe [::subs/cursor-pos]))))
                         @(re-frame/subscribe [::subs/cursor-pos])))))

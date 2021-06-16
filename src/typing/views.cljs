@@ -85,7 +85,6 @@
 (defn rand-text [n]
   (str (apply str (interpose " " (take n (shuffle words/common-words)))) " "))
 
-(count (take 100 @(re-frame/subscribe [::subs/presses])))
 
 (defn display-re-pressed-example []
   (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])
@@ -154,21 +153,6 @@
                                                        5))))
                        100))]]
 
-[:p
- [:span
-  "wpm: "]
- [:strong (str @(re-frame/subscribe [::subs/ave-wpm]))]]
-#_[:p
- [:span
-  "presses: "]
- [:strong (str @(re-frame/subscribe [::subs/presses]))]]
- 
-#_[:p
- [:span
-  "deltas: "]
- [:strong (str @(re-frame/subscribe [::subs/deltas])
-                  )]]
-
      
      (when-let [rpe @re-pressed-example]
        [:div
@@ -179,30 +163,26 @@
                  :margin-top       "16px"}}
         rpe])]))
 
-(let [presses (take 100 (reverse @(re-frame/subscribe [::subs/presses])))]
-  (remove #(> % 1000)
-          (for [x (range (dec (count presses)))]
-            (- (nth presses (inc x))
-               (nth presses x)))))
-@(re-frame/subscribe [::subs/presses])
-(defn circle [c r]
+(defn path [level]
+    (str "M -0.0 -0.25 L 0.0 0.25 L "
+         (* 5 (Math/cos (/ (* (- 180 level) Math/PI) 180))) " "
+         (* 5 (Math/sin (/ (* (- 180 level) Math/PI) 180))) " Z"))
+
+(defn gauge [path]
   [:svg {:width    "20%"
-           :view-box (str "-50 -52 100 50")}
+           :view-box (str "-5 0 10 10")}
   [:g
-   [:circle {:cx c :cy c :r r :fill "none" :stroke "black"}]
-   [:line {:x1 10 :y1 -30 :x2 0 :y2 0 :stroke "green" :stroke-width 10}]]])
+   [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])) :stroke "green"}]
+   #_[:line {:x1 10 :y1 -30 :x2 0 :y2 0 :stroke "green" :stroke-width 10}]]])
 
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])]
     [:div
-     [:h1
-      "Re-pressed Typing Test"]
+     [:h3
+      (str "wpm: " @(re-frame/subscribe [::subs/ave-wpm]))]
      [:p {:style {:font-size "40px"
                   :font-family "Georgia"}}]
      (dispatch-keydown-rules)
      [display-re-pressed-example]
-     ;[circle 0 50]
+     ;[gauge path]
      ]))
-
-@(re-frame/subscribe [::subs/text])
-(js/Date.now)

@@ -6,8 +6,8 @@
   (str (apply str (interpose " " (take n (shuffle words/common-words)))) " "))
 
 (def default-db
-  {:text (rand-text 5)
-   :text2 (rand-text 5)
+  {:text (rand-text 4)
+   :text2 (rand-text 4)
    :current-key nil
    :cursor-pos 0
    :presses []
