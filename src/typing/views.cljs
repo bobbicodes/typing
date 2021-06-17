@@ -164,25 +164,27 @@
         rpe])]))
 
 (defn path [level]
-    (str "M -0.0 -0.25 L 0.0 0.25 L "
-         (* 5 (Math/cos (/ (* (- 180 level) Math/PI) 180))) " "
-         (* 5 (Math/sin (/ (* (- 180 level) Math/PI) 180))) " Z"))
+    (str "M -0.0 -0.025 L 0.0 0.025 L "
+         (- (Math/cos (* (* 3.5 level) (/ js/Math.PI 180))))
+         " "
+         (- (Math/sin (* (* 3.5 level) (/ js/Math.PI 180))))
+         " Z"))
 
-(defn gauge [path]
+(defn gauge []
   [:svg {:width    "20%"
-           :view-box (str "-5 0 10 10")}
-  [:g
-   [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])) :stroke "green"}]
-   #_[:line {:x1 10 :y1 -30 :x2 0 :y2 0 :stroke "green" :stroke-width 10}]]])
+         :view-box (str "-1 -1 2 1")}
+   [:g
+    [:circle {:cx 0 :cy 0 :r 1 :stroke "blue" :stroke-width 0.05}]
+    [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])
+                ) :stroke "red"
+            :stroke-width 0.05}]]])
 
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])]
-    [:div
-     [:h3
-      (str "wpm: " @(re-frame/subscribe [::subs/ave-wpm]))]
-     [:p {:style {:font-size "40px"
-                  :font-family "Georgia"}}]
-     (dispatch-keydown-rules)
-     [display-re-pressed-example]
-     ;[gauge path]
-     ]))
+    [:center [:div
+              [gauge]
+              [:h3 (str @(re-frame/subscribe [::subs/ave-wpm]) " wpm")]
+              [:p {:style {:font-size "40px"
+                           :font-family "Georgia"}}]
+              (dispatch-keydown-rules)
+              [display-re-pressed-example]]]))

@@ -35,7 +35,7 @@
 (re-frame/reg-sub
  ::ave-wpm
  (fn [db]
-   (let [presses (reverse (take 30 (reverse (:presses db))))
+   (let [presses (reverse (take 50 (reverse (:presses db))))
          deltas (remove #(> % 5000)
                         (for [x (range (dec (count presses)))]
                           (- (nth presses (inc x))
