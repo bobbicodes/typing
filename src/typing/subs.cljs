@@ -45,6 +45,31 @@
                                   5))))))
 
 (re-frame/reg-sub
+ ::moving-ave
+ (fn [db]
+   (let [presses (reverse (take 50 (reverse (:presses db))))
+         deltas (remove #(> % 5000)
+                        (for [x (range (dec (count presses)))]
+                          (- (nth presses (inc x))
+                             (nth presses x))))]
+     (.round js/Math  (* 60 (/ (/ 1000 (/ (reduce + deltas)
+                                          (count deltas)))
+                               5))))))
+
+(re-frame/reg-sub
+ ::all-time-ave
+ (fn [db]
+   (let [presses (:presses db)
+         deltas (remove #(> % 5000)
+                        (for [x (range (dec (count presses)))]
+                          (- (nth presses (inc x))
+                             (nth presses x))))]
+     (.round js/Math  (* 60 (/ (/ 1000 (/ (reduce + deltas)
+                                          (count deltas)))
+                               5))))))
+
+
+(re-frame/reg-sub
  ::current-key
  (fn [db]
    (:current-key db)))

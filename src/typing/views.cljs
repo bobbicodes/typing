@@ -104,7 +104,8 @@
       [:span {:style {:font-size "40px"
                       :font-family "Georgia"}} 
        before]
-      [:span#cursor {:style {:font-size "40px"}}  (if (= " " (nth @text @pos))
+      [:span#cursor {:style {:font-size "40px"
+                             :font-family "Georgia"}}  (if (= " " (nth @text @pos))
                                                     (gstring/unescapeEntities "&nbsp;")
                                                     (nth @text @pos))]
       [:span {:style {:font-size "40px"
@@ -114,44 +115,7 @@
                       :font-family "Georgia"}}
        @text2]]
 
-     #_[:div
-        [:button
-         {:on-click (re-frame/dispatch [::events/set-text (rand-text 10)])}
-         "Re-pressed text"]]
-
-     
-     #_[:p
-      [:span
-       "Average (ms): "]
-      [:strong (str (.round js/Math (/ (reduce + (for [x (range (dec (count @presses)))]
-                                                   (- (nth @presses (inc x))
-                                                      (nth @presses x))))
-                                       (count @presses))))]]
-     
-     #_[:p
-      [:span
-       "cps: "]
-      [:strong (str (/ 1000 (/ (reduce + (for [x (range (dec (count @presses)))]
-                                                           (- (nth @presses (inc x))
-                                                              (nth @presses x))))
-                                               (count @presses))))]]
-
-#_[:p
- [:span
-  "wps: "]
- [:strong (str (/ (/ 1000 (/ (reduce + (for [x (range (dec (count @presses)))]
-                                         (- (nth @presses (inc x))
-                                            (nth @presses x))))
-                             (count @presses)))
-                  5))]]
-     
-     #_[:p
-      [:span
-       "wpm: "]
-      [:strong (str (/ (.round js/Math (* 100 (* 60 (/ (/ 1000 (/ (reduce + @(re-frame/subscribe [::subs/deltas]))
-                                                                  (count @(re-frame/subscribe [::subs/deltas]))))
-                                                       5))))
-                       100))]]
+    
 
      
      (when-let [rpe @re-pressed-example]
@@ -164,15 +128,16 @@
         rpe])]))
 
 (defn path [level]
+  (let [ave @(re-frame/subscribe [::subs/all-time-ave])]
     (str "M -0.0 -0.025 L 0.0 0.025 L "
-         (- (Math/cos (* (* 3.5 level) (/ js/Math.PI 180))))
+         (- (Math/cos (* (* (/ ave 10) level) (/ js/Math.PI 180))))
          " "
-         (- (Math/sin (* (* 3.5 level) (/ js/Math.PI 180))))
-         " Z"))
+         (- (Math/sin (* (* (/ ave 10) level) (/ js/Math.PI 180))))
+         " Z")))
 
 (defn gauge []
   [:svg {:width    "20%"
-         :view-box (str "-1 -1 2 1")}
+         :view-box (str "-1 -1.1 2 1")}
    [:g
     [:circle {:cx 0 :cy 0 :r 1 :stroke "blue" :stroke-width 0.05}]
     [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])
@@ -183,8 +148,9 @@
   (let [text (re-frame/subscribe [::subs/text])]
     [:center [:div
               [gauge]
-              [:h3 (str @(re-frame/subscribe [::subs/ave-wpm]) " wpm")]
+              [:h3 (str @(re-frame/subscribe [::subs/moving-ave]) " wpm")]
               [:p {:style {:font-size "40px"
                            :font-family "Georgia"}}]
               (dispatch-keydown-rules)
-              [display-re-pressed-example]]]))
+              [display-re-pressed-example]
+              #_[:p (str "All-time average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]]]))
