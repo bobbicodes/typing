@@ -130,9 +130,9 @@
 (defn path [level]
   (let [ave @(re-frame/subscribe [::subs/all-time-ave])]
     (str "M -0.0 -0.025 L 0.0 0.025 L "
-         (- (Math/cos (* (* (/ ave 10.5) level) (/ js/Math.PI 180))))
+         (- (Math/cos (* (* (/ ave 11) level) (/ js/Math.PI 180))))
          " "
-         (- (Math/sin (* (* (/ ave 10.5) level) (/ js/Math.PI 180))))
+         (- (Math/sin (* (* (/ ave 11) level) (/ js/Math.PI 180))))
          " Z")))
 
 (defn gauge []
@@ -144,13 +144,25 @@
                 ) :stroke "red"
             :stroke-width 0.05}]]])
 
+(defn zero-pad [n]
+  (if (< n 10)
+    (str "0" n)
+    n))
+
+(defn fmt-time [seconds]
+  (let [minutes (quot seconds 60)]
+    (str minutes ":" (zero-pad (mod seconds 60)))))
+
 (defn main-panel []
-  (let [text (re-frame/subscribe [::subs/text])]
-    [:center [:div
-              [gauge]
-              [:h3 (str @(re-frame/subscribe [::subs/moving-ave]) " wpm")]
-              [:p {:style {:font-size "40px"
-                           :font-family "Georgia"}}]
-              (dispatch-keydown-rules)
-              [display-re-pressed-example]
-              #_[:p (str "All-time average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]]]))
+  (let [text (re-frame/subscribe [::subs/text])
+        total (re-frame/subscribe [::subs/total-time])]
+    [:div [:center
+           [gauge]
+           [:h3 (str @(re-frame/subscribe [::subs/moving-ave]) " wpm")]
+           [:p {:style {:font-size "40px"
+                        :font-family "Georgia"}}]
+           (dispatch-keydown-rules)
+           [display-re-pressed-example]]
+     [:div
+      [:p (str "Total time: " (fmt-time @total))]
+      [:p (str "All-time average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]]]))

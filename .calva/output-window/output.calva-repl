@@ -25,3 +25,11 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
 cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
+#'typing.views/zero-pad
+clj꞉typing.views꞉> 
+#'typing.views/zero-pad
+clj꞉typing.views꞉> 
+"09"
+clj꞉typing.views꞉> 
+12
+clj꞉typing.views꞉> 

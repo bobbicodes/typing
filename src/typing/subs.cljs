@@ -68,6 +68,16 @@
                                           (count deltas)))
                                5))))))
 
+(re-frame/reg-sub
+ ::total-time
+ (fn [db]
+   (let [presses (:presses db)
+         deltas (remove #(> % 5000)
+                        (for [x (range (dec (count presses)))]
+                          (- (nth presses (inc x))
+                             (nth presses x))))
+         ms (reduce + deltas)]
+     (.round js/Math (/ ms 1000)))))
 
 (re-frame/reg-sub
  ::current-key
