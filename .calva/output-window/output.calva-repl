@@ -25,21 +25,3 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
 cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
-nil
-; No available JS runtime.
-; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
-clj꞉cljs.user꞉> 
-nil
-; No available JS runtime.
-; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
-clj꞉cljs.user꞉> 
-nil
-; No available JS runtime.
-; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
-clj꞉cljs.user꞉> 
-9
-clj꞉typing.views꞉> 
-"M -0.0 -0.025 L 0.0 0.025 L -0.48063084796915906 0.13781867790850091 Z"
-cljs꞉typing.views꞉> 
-0.017453292519943295
-cljs꞉typing.views꞉> 

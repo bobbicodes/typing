@@ -130,9 +130,9 @@
 (defn path [level]
   (let [ave @(re-frame/subscribe [::subs/all-time-ave])]
     (str "M -0.0 -0.025 L 0.0 0.025 L "
-         (- (Math/cos (* (* (/ ave 12) level) (/ js/Math.PI 180))))
+         (- (Math/cos (* (* (/ ave 10.5) level) (/ js/Math.PI 180))))
          " "
-         (- (Math/sin (* (* (/ ave 12) level) (/ js/Math.PI 180))))
+         (- (Math/sin (* (* (/ ave 10.5) level) (/ js/Math.PI 180))))
          " Z")))
 
 (defn gauge []
