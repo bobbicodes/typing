@@ -152,7 +152,10 @@
 (defn fmt-time [seconds]
   (let [minutes (quot seconds 60)
         hours (quot minutes 60)]
-    (str minutes ":" (zero-pad (mod seconds 60)))))
+    (str (when (< 0 hours) 
+           (str hours ":")) 
+         (zero-pad (mod minutes 60)) ":" 
+         (zero-pad (mod seconds 60)))))
 
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])

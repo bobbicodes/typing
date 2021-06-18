@@ -15,7 +15,7 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
+clj꞉shadow.user꞉> 
 ; Creating cljs repl session...
 ; Connecting cljs repl: shadow-cljs...
 ;   The Calva Connection Log might have more connection progress information.
@@ -24,22 +24,10 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    *Calva: Toggle REPL connection*
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
-cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
+cljs꞉cljs.user꞉> 
 nil
 ; No available JS runtime.
 ; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
-clj꞉cljs.user꞉> 
-35
-clj꞉typing.views꞉> 
-"M -0.0 -0.025 L 0.0 0.025 L -1 0 Z"
-clj꞉typing.views꞉> 
-"M -0.0 -0.025 L 0.0 0.025 L 1 -1.2246467991473532e-16 Z"
-clj꞉typing.views꞉> 
-35
-clj꞉typing.views꞉> 
-70
-clj꞉typing.views꞉> 
-0.5
-clj꞉typing.views꞉> 
-90
-clj꞉typing.views꞉> 
+cljs꞉cljs.user꞉> 
+11
+cljs꞉typing.views꞉> 
