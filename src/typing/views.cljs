@@ -70,8 +70,8 @@
                   [[::events/set-current-key "x"] [{:keyCode 88}]]
                   [[::events/set-current-key "y"] [{:keyCode 89}]]
                   [[::events/set-current-key "z"] [{:keyCode 90}]]
-
-                  [[::events/set-current-key "-"] [{:keyCode 189}]]]
+                  [[::events/set-current-key "-"] [{:keyCode 189}]]
+                  [[::events/set-current-key "'"] [{:keyCode 222}]]]
 
      :clear-keys
      [[{:keyCode 27} ;; escape
@@ -128,11 +128,11 @@
         rpe])]))
 
 (defn path [level]
-  (let [ave @(re-frame/subscribe [::subs/all-time-ave])]
+  (let [ave (re-frame/subscribe [::subs/all-time-ave])]
     (str "M -0.0 -0.025 L 0.0 0.025 L "
-         (- (Math/cos (* (* (/ ave 11) level) (/ js/Math.PI 180))))
+         (- (Math/cos (* (* 180 (/ level (* 2 @ave))) (/ js/Math.PI 180))))
          " "
-         (- (Math/sin (* (* (/ ave 11) level) (/ js/Math.PI 180))))
+         (- (Math/sin (* (* 180 (/ level (* 2 @ave))) (/ js/Math.PI 180))))
          " Z")))
 
 (defn gauge []
@@ -150,7 +150,8 @@
     n))
 
 (defn fmt-time [seconds]
-  (let [minutes (quot seconds 60)]
+  (let [minutes (quot seconds 60)
+        hours (quot minutes 60)]
     (str minutes ":" (zero-pad (mod seconds 60)))))
 
 (defn main-panel []
@@ -165,4 +166,5 @@
            [display-re-pressed-example]]
      [:div
       [:p (str "Total time: " (fmt-time @total))]
-      [:p (str "All-time average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]]]))
+      [:p (str "Average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]
+]]))
