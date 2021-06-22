@@ -6,7 +6,7 @@ A [re-frame](https://github.com/day8/re-frame) application for learning typing.
 
 ## Rationale (why did I make this?)
 
-I don't have propor internet now, and was not able to find a typing app that was:
+I don't have proper internet now, and was not able to find a typing app that was:
 * decent
 * free
 * works offline.
