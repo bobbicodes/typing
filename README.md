@@ -2,6 +2,23 @@
 
 A [re-frame](https://github.com/day8/re-frame) application for learning typing.
 
+[Try it](https://porkostomus.github.io/typing/)
+
+## Rationale (why did I make this?)
+
+I don't have propor internet now, and was not able to find a typing app that was:
+* decent
+* free
+* works offline.
+
+## Goals
+
+* Can be easily modified for any specialized text desired.
+* "Gamify" it, i.e. create "levels" in which you unlock letters each time you reach an average target speed
+* Create data persistance and ways to visualize progress
+* Display on-screen keyboard with customizable layout
+
+
 ## Getting Started
 
 ### Project Overview
