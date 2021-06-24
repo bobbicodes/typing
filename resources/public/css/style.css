@@ -7,12 +7,11 @@ body {
     position: relative;
     color: #ffcc00;
     text-shadow: 0 0 2px #100c0f, 0 0 3px #ffaa0099, 0 0 5px #ffaa0099, 0 0 10px #ffaa0099;
-    line-height: 0.8;
-    cursor: none;
+    line-height: 1;
   }
   
   h1 {
-    line-height: 0.2;
+    line-height: 0.1;
   }
   
   h2 {
@@ -26,10 +25,6 @@ body {
     text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
     font-style: italic;
   }
-  
-p {
-  cursor: none;
-}
 
   label {
     font-style: italic;

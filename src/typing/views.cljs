@@ -7,6 +7,11 @@
    [typing.words :as words]
    [goog.string :as gstring]))
 
+(defn button [label onclick]
+  [:button
+   {:on-click onclick}
+   label])
+
 (defn dispatch-keydown-rules []
   (re-frame/dispatch
    [::rp/set-keydown-rules
@@ -157,17 +162,51 @@
          (zero-pad (mod minutes 60)) ":" 
          (zero-pad (mod seconds 60)))))
 
+(defn ave-time [letter]
+  (let [presses (sort-by key @(re-frame/subscribe [::subs/presses]))
+        times 
+        (remove #(> % 5000)
+        (for [n (range 1 (count presses))
+                    :when (= (last (nth presses n)) letter)]
+                (- (first (nth presses n)) (first (nth presses (dec n))))))]
+    (.round js/Math (/ (reduce + times) (count times)))))
+
+(defn problem-keys [presses]
+  (let [presses (sort-by key presses)
+        keys (distinct (vals presses))]
+    (reverse (sort-by last (for [letter keys]
+                                      [letter (ave-time letter)])))))
+
+(def lowercase-letters #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
+
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])
-        total (re-frame/subscribe [::subs/total-time])]
+        total (re-frame/subscribe [::subs/total-time])
+        presses (re-frame/subscribe [::subs/presses])
+        deltas (re-frame/subscribe [::subs/deltas])
+        times (re-frame/subscribe [::subs/times])
+        prob-keys (re-frame/subscribe [::subs/prob-keys])
+        moving-ave (re-frame/subscribe [::subs/moving-ave])
+        all-time-ave (re-frame/subscribe [::subs/all-time-ave])]
     [:div [:center
            [gauge]
-           [:h3 (str @(re-frame/subscribe [::subs/moving-ave]) " wpm")]
+           [:h3 (str @moving-ave " wpm")]
            [:p {:style {:font-size "40px"
                         :font-family "Georgia"}}]
            (dispatch-keydown-rules)
            [display-re-pressed-example]]
      [:div
       [:p (str "Total time: " (fmt-time @total))]
-      [:p (str "Average: " @(re-frame/subscribe [::subs/all-time-ave]) " wpm")]
-]]))
+      [:p (str "Average: " @all-time-ave " wpm")]
+      [:span "Problem keys (ave. ms): "]
+      [button "Analyze" #(re-frame/dispatch [::events/analyze-prob-keys @presses])]
+      (for [key (take 5 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
+          [:p (str (first key) " " (last key))])
+      ;[:p (str "Presses: " @presses )]
+      ;[:p (str "Deltas: " @deltas)]
+      ;[:p (str "Times: " @times)]
+      ]]))
+
+
+
+@(re-frame/subscribe [::subs/prob-keys])

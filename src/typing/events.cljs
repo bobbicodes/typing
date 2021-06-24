@@ -31,13 +31,33 @@
 
 (re-frame/reg-event-db
  ::insert-press
- (fn [db [_ value]]
-   (update db :presses conj value)))
+ (fn [db [_ time key]]
+   (update db :presses #(assoc % time key))))
 
 (re-frame/reg-event-db
  ::set-ave-wpm
  (fn [db [_ value]]
    (assoc db :ave-wpm value)))
+
+(defn ave-time [letter]
+  (let [presses (sort-by key @(re-frame/subscribe [::subs/presses]))
+        times
+        (remove #(> % 5000)
+                (for [n (range 1 (count presses))
+                      :when (= (last (nth presses n)) letter)]
+                  (- (first (nth presses n)) (first (nth presses (dec n))))))]
+    (.round js/Math (/ (reduce + times) (count times)))))
+
+(defn problem-keys [presses]
+  (let [presses (sort-by key presses)
+        keys (distinct (vals presses))]
+    (reverse (sort-by last (for [letter keys]
+                             [letter (ave-time letter)])))))
+
+(re-frame/reg-event-db
+ ::analyze-prob-keys
+ (fn [db [_ value]]
+   (assoc db :prob-keys (problem-keys value))))
 
 (re-frame/reg-event-db
  ::clear-presses
@@ -52,7 +72,7 @@
           :cursor-pos (if (= value
                              (nth @(re-frame/subscribe [::subs/text])
                                   @(re-frame/subscribe [::subs/cursor-pos])))
-                        (do (re-frame/dispatch [::insert-press (js/Date.now)])
+                        (do (re-frame/dispatch [::insert-press (js/Date.now) value])
                             (if (= "" (apply str (drop (inc @(re-frame/subscribe [::subs/cursor-pos])) ; are we at the end?
                                                        @(re-frame/subscribe [::subs/text]))))
                               (do (re-frame/dispatch [::set-text @(re-frame/subscribe [::subs/text2])])
@@ -60,8 +80,6 @@
                                   0) ; reset counter and update text
                               (inc @(re-frame/subscribe [::subs/cursor-pos]))))
                         @(re-frame/subscribe [::subs/cursor-pos])))))
-
-@(re-frame/subscribe [::subs/deltas])
 
 (re-frame/reg-event-db
  ::advance-cursor
