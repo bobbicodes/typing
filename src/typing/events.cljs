@@ -6,8 +6,13 @@
    [typing.subs :as subs]
    [typing.words :as words]))
 
+(def lowercase-letters #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
+
 (defn rand-text [n]
-  (str (apply str (interpose " " (take n (shuffle words/common-words)))) " "))
+  (str (apply str (interpose " " (shuffle (map #(first (words/words-with % words/common-words))
+                                               (map first (take n (filter #(contains? lowercase-letters (first %))
+                                                                          @(re-frame/subscribe [::subs/prob-keys])))))))) " "))
+
 
 (re-frame/reg-event-db
  ::initialize-db
@@ -25,6 +30,11 @@
    (assoc db :text value)))
 
 (re-frame/reg-event-db
+ ::set-words
+ (fn [db [_ value]]
+   (assoc db :words value)))
+
+(re-frame/reg-event-db
  ::set-text2
  (fn [db [_ value]]
    (assoc db :text2 value)))
@@ -32,7 +42,9 @@
 (re-frame/reg-event-db
  ::insert-press
  (fn [db [_ time key]]
-   (update db :presses #(assoc % time key))))
+   (update db :presses #(conj % {:time time :key key}))))
+
+(re-frame/dispatch [::insert-press (js/Date.now) "h"])
 
 (re-frame/reg-event-db
  ::set-ave-wpm
@@ -40,19 +52,20 @@
    (assoc db :ave-wpm value)))
 
 (defn ave-time [letter]
-  (let [presses (sort-by key @(re-frame/subscribe [::subs/presses]))
+  (let [presses @(re-frame/subscribe [::subs/presses])
         times
         (remove #(> % 5000)
                 (for [n (range 1 (count presses))
-                      :when (= (last (nth presses n)) letter)]
-                  (- (first (nth presses n)) (first (nth presses (dec n))))))]
+                      :when (= (:key (nth presses n)) letter)]
+                  (- (:time (nth presses n)) (:time (nth presses (dec n))))))]
     (.round js/Math (/ (reduce + times) (count times)))))
 
 (defn problem-keys [presses]
-  (let [presses (sort-by key presses)
-        keys (distinct (vals presses))]
+  (let [keys (distinct (map :key presses))]
     (reverse (sort-by last (for [letter keys]
                              [letter (ave-time letter)])))))
+
+@(re-frame/subscribe [::subs/presses])
 
 (re-frame/reg-event-db
  ::analyze-prob-keys
@@ -64,22 +77,28 @@
  (fn [db [_ value]]
    (assoc db :presses [])))
 
+
+
 (re-frame/reg-event-db
  ::set-current-key
  (fn [db [_ value]]
    (assoc db
           :current-key value
-          :cursor-pos (if (= value
-                             (nth @(re-frame/subscribe [::subs/text])
-                                  @(re-frame/subscribe [::subs/cursor-pos])))
+          :cursor-pos (if (= value (nth (:text db) (:cursor-pos db)))
                         (do (re-frame/dispatch [::insert-press (js/Date.now) value])
-                            (if (= "" (apply str (drop (inc @(re-frame/subscribe [::subs/cursor-pos])) ; are we at the end?
-                                                       @(re-frame/subscribe [::subs/text]))))
-                              (do (re-frame/dispatch [::set-text @(re-frame/subscribe [::subs/text2])])
+                            (if (= "" (apply str (drop (inc (:cursor-pos db)) ; are we at the end?
+                                                       (:text db))))
+                              (do (re-frame/dispatch [::set-text (:text2 db)])
                                   (re-frame/dispatch [::set-text2 (rand-text 4)])
+                                  (re-frame/dispatch [::analyze-prob-keys (:presses db)])
+                                  (re-frame/dispatch [::set-words 
+                                                      (words/must-include
+                                                       words/common-words
+                                                       (set (map first (take 5 (filter #(contains? lowercase-letters (first %))
+                                                                                       (:prob-keys db))))))])
                                   0) ; reset counter and update text
-                              (inc @(re-frame/subscribe [::subs/cursor-pos]))))
-                        @(re-frame/subscribe [::subs/cursor-pos])))))
+                              (inc (:cursor-pos db))))
+                        (:cursor-pos db)))))
 
 (re-frame/reg-event-db
  ::advance-cursor

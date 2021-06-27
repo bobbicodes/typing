@@ -32,12 +32,48 @@
 
 (clojure.set/difference letters #{"e" "t" "r" "s"})
 
+(apply #(or %) (map #(clojure.string/includes? "yard" %) #{"k" "m"}))
+
+(defn must-include [words letters]
+  (filter (fn [word]
+            (some true? (map #(clojure.string/includes? word %) letters)))
+          words))
+
+(defn words-with [letter words]
+  (shuffle (filter #(clojure.string/includes? % letter)
+                   words)))
+
+(words-with "z" common-words)
+
+(clojure.string/includes? "word" "e")
+
+(some true? '(false true false))
+
+(filter (fn [word]
+          (some true? (map #(clojure.string/includes? word %) #{"k" "y" "m"})))
+        common-words)
+
+(filter (fn [word letters] (some true? (map #(clojure.string/includes? word %) letters))) letters)
+
+(must-include common-words #{"k" "y" "m"})
+
 (defn exclude-letters [letter-set words]
   (filter (fn [word]
             (not-any?
              #(clojure.string/includes? word %)
              letter-set))
           words))
+
+(defn words-from [letter-set words]
+  (filter
+   #(empty? (clojure.set/difference (set %) letter-set))
+   words))
+
+(words-from #{"e" "t" "r" "s"} common-words)
+
+
+
+(clojure.set/difference (set "value") #{"e" "f" "v" "a" "l" "u"} ) 
 
 ;(exclude-letters (clojure.set/difference letters #{"e" "t" "r" "s"}) common-words)
 

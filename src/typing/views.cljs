@@ -15,14 +15,7 @@
 (defn dispatch-keydown-rules []
   (re-frame/dispatch
    [::rp/set-keydown-rules
-    {:event-keys [[[::events/set-re-pressed-example "Hello, world!"]
-                   [{:keyCode 72} ;; h
-                    {:keyCode 69} ;; e
-                    {:keyCode 76} ;; l
-                    {:keyCode 76} ;; l
-                    {:keyCode 79} ;; o
-                    ]]
-                  [[::events/set-current-key " "] [{:keyCode 32}]]
+    {:event-keys [[[::events/set-current-key " "] [{:keyCode 32}]]
                   [[::events/set-current-key "A"] [{:keyCode 65 :shiftKey true}]]
                   [[::events/set-current-key "B"] [{:keyCode 66 :shiftKey true}]]
                   [[::events/set-current-key "C"] [{:keyCode 67 :shiftKey true}]]
@@ -88,8 +81,7 @@
      }]))
 
 (defn rand-text [n]
-  (str (apply str (interpose " " (take n (shuffle words/common-words)))) " "))
-
+  (str (apply str (interpose " " (take n (shuffle @(re-frame/subscribe [::subs/words]))))) " "))
 
 (defn display-re-pressed-example []
   (let [re-pressed-example (re-frame/subscribe [::subs/re-pressed-example])
@@ -105,20 +97,18 @@
  [:span
   "wpm: "]
  [:strong (str @(re-frame/subscribe [::subs/ave-wpm]))]]
-     [:p
-      [:span {:style {:font-size "40px"
-                      :font-family "Georgia"}} 
+     [:p {:style {:font-size "40px"
+                  :font-family "Georgia"
+                  :cursor "none"}}
+      [:span
        before]
-      [:span#cursor {:style {:font-size "40px"
-                             :font-family "Georgia"}}  (if (= " " (nth @text @pos))
-                                                    (gstring/unescapeEntities "&nbsp;")
-                                                    (nth @text @pos))]
-      [:span {:style {:font-size "40px"
-                      :font-family "Georgia"}} after]]
-     [:p
-      [:span {:style {:font-size "40px"
-                      :font-family "Georgia"}}
-       @text2]]
+      [:span#cursor  {:style {:background "#fc199a"}}(if (= " " (nth @text @pos))
+                       (gstring/unescapeEntities "&nbsp;")
+                       (nth @text @pos))]
+      [:span  after]
+      [:p
+       [:span
+        @text2]]]
 
     
 
@@ -145,8 +135,7 @@
          :view-box (str "-1 -1.1 2 1")}
    [:g
     [:circle {:cx 0 :cy 0 :r 1 :stroke "blue" :stroke-width 0.05}]
-    [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])
-                ) :stroke "red"
+    [:path {:d (path @(re-frame/subscribe [::subs/ave-wpm])) :stroke "red"
             :stroke-width 0.05}]]])
 
 (defn zero-pad [n]
@@ -191,22 +180,13 @@
     [:div [:center
            [gauge]
            [:h3 (str @moving-ave " wpm")]
-           [:p {:style {:font-size "40px"
-                        :font-family "Georgia"}}]
            (dispatch-keydown-rules)
            [display-re-pressed-example]]
      [:div
+      [:p (str "Keypresses analyzed: " (count @presses))]
       [:p (str "Total time: " (fmt-time @total))]
       [:p (str "Average: " @all-time-ave " wpm")]
-      [:span "Problem keys (ave. ms): "]
-      [button "Analyze" #(re-frame/dispatch [::events/analyze-prob-keys @presses])]
-      (for [key (take 5 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
-          [:p (str (first key) " " (last key))])
-      ;[:p (str "Presses: " @presses )]
-      ;[:p (str "Deltas: " @deltas)]
-      ;[:p (str "Times: " @times)]
-      ]]))
-
-
-
-@(re-frame/subscribe [::subs/prob-keys])
+      [:div
+       [:span "Problem keys (ave. ms): "]
+       [:span (interpose ", " (for [key (take 5 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
+                                (str (first key) " - " (last key))))]]]]))

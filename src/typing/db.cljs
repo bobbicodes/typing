@@ -10,6 +10,7 @@
    :text2 (rand-text 4)
    :current-key nil
    :cursor-pos 0
-   :presses {}
+   :presses []
    :ave-wpm 0
-   :prob-keys []})
+   :prob-keys []
+   :words words/common-words})

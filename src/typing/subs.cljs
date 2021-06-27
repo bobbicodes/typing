@@ -20,7 +20,7 @@
 (re-frame/reg-sub
  ::times
  (fn [db]
-   (vec (sort (keys (:presses db))))))
+   (vec (map :time (:presses db)))))
 
 (re-frame/reg-sub
  ::presses
@@ -33,9 +33,14 @@
    (:prob-keys db)))
 
 (re-frame/reg-sub
+ ::words
+ (fn [db]
+   (:words db)))
+
+(re-frame/reg-sub
  ::deltas
  (fn [db]
-   (let [presses (reverse (reverse (vec (sort (keys (:presses db))))))]
+   (let [presses (vec (map :time (:presses db)))]
      (remove #(> % 1000)
              (for [x (range (dec (count presses)))]
                (- (nth presses (inc x))
@@ -44,7 +49,8 @@
 (re-frame/reg-sub
  ::ave-wpm
  (fn [db]
-   (let [presses (reverse (take 50 (reverse (vec (sort (keys (:presses db)))))))
+   (let [presses (subvec (vec (map :time (:presses db))) 
+                         (max 0 (- (count (:presses db)) 50)))
          deltas (remove #(> % 5000)
                         (for [x (range (dec (count presses)))]
                           (- (nth presses (inc x))
@@ -56,7 +62,8 @@
 (re-frame/reg-sub
  ::moving-ave
  (fn [db]
-   (let [presses (reverse (take 50 (reverse (vec (sort (keys (:presses db)))))))
+   (let [presses (subvec (vec (map :time (:presses db))) 
+                         (max 0 (- (count (:presses db)) 50)) )
          deltas (remove #(> % 5000)
                         (for [x (range (dec (count presses)))]
                           (- (nth presses (inc x))
@@ -68,7 +75,7 @@
 (re-frame/reg-sub
  ::all-time-ave
  (fn [db]
-   (let [presses (vec (sort (keys (:presses db))))
+   (let [presses (vec (map :time (:presses db)))
          deltas (remove #(> % 5000)
                         (for [x (range (dec (count presses)))]
                           (- (nth presses (inc x))
@@ -80,7 +87,7 @@
 (re-frame/reg-sub
  ::total-time
  (fn [db]
-   (let [presses (vec (sort (keys (:presses db))))
+   (let [presses (vec (map :time (:presses db)))
          deltas (remove #(> % 5000)
                         (for [x (range (dec (count presses)))]
                           (- (nth presses (inc x))
