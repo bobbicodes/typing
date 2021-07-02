@@ -5,7 +5,7 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
-; Starting Jack-in Terminal: npx shadow-cljs -d cider/cider-nrepl:0.26.0 watch :app
+; Starting Jack-in Terminal: npx.cmd shadow-cljs -d cider/cider-nrepl:0.26.0 watch :app
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS: 
@@ -25,49 +25,67 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
 cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
-(["F" 1343]
- ["-" ##NaN]
- ["I" 1218]
- ["M" 1015]
- ["j" 618]
- ["k" 525]
- ["q" 447]
- ["g" 412]
- ["u" 406]
- ["y" 388]
- ["s" 386]
- ["m" 380]
- ["t" 372]
- ["i" 370]
- ["b" 349]
- ["c" 347]
- ["f" 346]
- ["v" 332]
- ["e" 323]
- ["p" 319]
- ["h" 316]
- ["o" 311]
- ["w" 305]
- ["a" 300]
- ["n" 294]
- ["l" 290]
- [" " 290]
- ["d" 284]
- ["x" 268]
- ["r" 254])
-clj꞉typing.views꞉> 
-nil
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:1:1
- Use of undeclared Var typing.views/lowercase-letters
---------------------------------------------------------------------------------
-
-clj꞉typing.views꞉> 
-#'typing.views/lowercase-letters
-clj꞉typing.views꞉> 
-#{"d" "n" "z" "w" "s" "f" "e" "q" "p" "j" "x" "v" "a" "t" "i" "k" "b" "r" "y" "g" "l" "u" "h" "m" "o" "c"}
-clj꞉typing.views꞉> 
-true
-clj꞉typing.views꞉> 
-false
-clj꞉typing.views꞉> 
+(["-" 948]
+ ["z" 379]
+ ["p" 369]
+ ["b" 347]
+ ["k" 342]
+ ["d" 342]
+ ["q" 329]
+ ["g" 329]
+ ["y" 323]
+ ["t" 321]
+ ["x" 317]
+ ["e" 314]
+ ["h" 307]
+ ["a" 307]
+ ["w" 306]
+ ["c" 304]
+ ["m" 304]
+ ["f" 295]
+ ["i" 295]
+ ["s" 287]
+ ["u" 276]
+ ["l" 271]
+ ["o" 269]
+ ["v" 264]
+ ["n" 259]
+ ["r" 253]
+ [" " 223])
+cljs꞉typing.events꞉> 
+"observation stroke emphasize inspire "
+cljs꞉typing.events꞉> 
+(["-" 948]
+ ["z" 379]
+ ["p" 369]
+ ["b" 347]
+ ["k" 342]
+ ["d" 342]
+ ["q" 329]
+ ["g" 329]
+ ["y" 323]
+ ["t" 321]
+ ["x" 317]
+ ["e" 314]
+ ["h" 307]
+ ["a" 307]
+ ["w" 306]
+ ["c" 304]
+ ["m" 304]
+ ["f" 295]
+ ["i" 295]
+ ["s" 287]
+ ["u" 276]
+ ["l" 271]
+ ["o" 269]
+ ["v" 264]
+ ["n" 259]
+ ["r" 253]
+ [" " 223])
+cljs꞉typing.events꞉> 
+[]
+cljs꞉typing.events꞉> 
+()
+cljs꞉typing.events꞉> 
+("extensive" "joint" "overall" "directly")
+cljs꞉typing.events꞉> 

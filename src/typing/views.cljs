@@ -166,7 +166,8 @@
     (reverse (sort-by last (for [letter keys]
                                       [letter (ave-time letter)])))))
 
-(def lowercase-letters #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
+(def lowercase-letters
+  (set (map char (range 97 123))))
 
 (defn main-panel []
   (let [text (re-frame/subscribe [::subs/text])
@@ -188,5 +189,6 @@
       [:p (str "Average: " @all-time-ave " wpm")]
       [:div
        [:span "Problem keys (ave. ms): "]
-       [:span (interpose ", " (for [key (take 5 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
+       [:span (interpose ", " (for [key (take 4 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
                                 (str (first key) " - " (last key))))]]]]))
+

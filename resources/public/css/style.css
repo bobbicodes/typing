@@ -7,11 +7,7 @@ body {
     position: relative;
     color: #ffcc00;
     text-shadow: 0 0 2px #100c0f, 0 0 3px #ffaa0099, 0 0 5px #ffaa0099, 0 0 10px #ffaa0099;
-    line-height: 1;
-  }
-  
-  h1 {
-    line-height: 0.1;
+    line-height: 0.5;
   }
   
   h2 {
@@ -65,18 +61,3 @@ body {
     border: 1px solid rgb(100, 20, 96);
     background-color:rgba(77, 24, 82, 0.842);
   }
-
-  
-/* blinking cursor */
-#cursor {
-  background: #fc199a;
-  -webkit-animation: blink 0.8s infinite;
-  width: 7px;
-  height: 15px;
-}
-
-@-webkit-keyframes blink {
-  0% {background: #fc199a}
-  50% {background: #fc199a}
-  100% {background: #fc199a}
-}

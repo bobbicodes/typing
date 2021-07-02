@@ -6,13 +6,17 @@
    [typing.subs :as subs]
    [typing.words :as words]))
 
-(def lowercase-letters #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
+(def lowercase-letters
+  (set (map char (range 97 123))))
 
 (defn rand-text [n]
-  (str (apply str (interpose " " (shuffle (map #(first (words/words-with % words/common-words))
-                                               (map first (take n (filter #(contains? lowercase-letters (first %))
-                                                                          @(re-frame/subscribe [::subs/prob-keys])))))))) " "))
-
+  (let [prob-keys (filter #(contains? lowercase-letters (first %))
+                          @(re-frame/subscribe [::subs/prob-keys]))
+        rand-words (if (empty? prob-keys)
+                     (take n (shuffle words/common-words))
+                     (shuffle (map #(first (words/words-with % words/common-words))
+                                   (map first (take n prob-keys)))))]
+    (str (apply str (interpose " " rand-words)) " ")))
 
 (re-frame/reg-event-db
  ::initialize-db
@@ -44,8 +48,6 @@
  (fn [db [_ time key]]
    (update db :presses #(conj % {:time time :key key}))))
 
-(re-frame/dispatch [::insert-press (js/Date.now) "h"])
-
 (re-frame/reg-event-db
  ::set-ave-wpm
  (fn [db [_ value]]
@@ -53,19 +55,40 @@
 
 (defn ave-time [letter]
   (let [presses @(re-frame/subscribe [::subs/presses])
-        times
-        (remove #(> % 5000)
+        times (remove #(> % 5000)
                 (for [n (range 1 (count presses))
                       :when (= (:key (nth presses n)) letter)]
                   (- (:time (nth presses n)) (:time (nth presses (dec n))))))]
     (.round js/Math (/ (reduce + times) (count times)))))
 
+(defn stats [letter presses]
+  (let [times (remove #(> % 5000)
+                      (for [n (range 1 (count presses))
+                            :when (= (:key (nth presses n)) letter)]
+                        (- (:time (nth presses n)) (:time (nth presses (dec n))))))]
+    [(reduce + times)
+     (count times)]))
+
+(defn add-stat [m l]
+  (assoc m
+         (keyword l)
+         (stats l @(re-frame/subscribe [::subs/presses]))))
+
+(def speed-map
+  (reduce add-stat {} lowercase-letters))
+
+(comment
+  (stats "p" @(re-frame/subscribe [::subs/presses]))
+  (assoc {} 
+         (keyword "h") 
+         (stats "h" @(re-frame/subscribe [::subs/presses])))
+  speed-map
+  )
+
 (defn problem-keys [presses]
   (let [keys (distinct (map :key presses))]
     (reverse (sort-by last (for [letter keys]
                              [letter (ave-time letter)])))))
-
-@(re-frame/subscribe [::subs/presses])
 
 (re-frame/reg-event-db
  ::analyze-prob-keys
@@ -76,8 +99,6 @@
  ::clear-presses
  (fn [db [_ value]]
    (assoc db :presses [])))
-
-
 
 (re-frame/reg-event-db
  ::set-current-key

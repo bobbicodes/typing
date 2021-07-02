@@ -64,14 +64,17 @@
              letter-set))
           words))
 
-(defn words-from [letter-set words]
+(defn words-from 
+  "Generates a list of words that *only* contain letters in set."
+  [letter-set words]
   (filter
    #(empty? (clojure.set/difference (set %) letter-set))
    words))
 
 (words-from #{"e" "t" "r" "s"} common-words)
 
-
+(def ordered-letters
+  ["e" "t" "a" "i" "n" "o" "s" "h" "r" "d" "l" "u" "c" "m" "f" "w" "y" "g" "p" "b" "v" "k" "q" "j" "x" "z"])
 
 (clojure.set/difference (set "value") #{"e" "f" "v" "a" "l" "u"} ) 
 
