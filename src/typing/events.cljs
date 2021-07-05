@@ -49,9 +49,33 @@
    (update db :presses #(conj % {:time time :key key}))))
 
 (re-frame/reg-event-db
+ ::insert-time
+ (fn [db [_ time]]
+   (assoc db :last-press time)))
+
+(re-frame/reg-event-db
  ::set-ave-wpm
  (fn [db [_ value]]
    (assoc db :ave-wpm value)))
+
+
+(def mydb
+  {:last-press 0
+   :key-map {:a [150 1]}})
+
+(update-in mydb [:key-map :a]
+           (fn [[total-ms num-pressed]] [(+ total-ms (- (js/Date.now) @(re-frame/subscribe [::subs/last-press])))
+                                         (inc num-pressed)]))
+
+(js/Date.now)
+
+
+(re-frame/reg-event-db
+ ::update-key-map
+ (fn [db [_ time key]]
+   (update-in db [:key-map key]
+              (fn [[total-ms num-pressed]] [(+ total-ms (- time (:last-press db)))
+                                            (inc num-pressed)]))))
 
 (defn ave-time [letter]
   (let [presses @(re-frame/subscribe [::subs/presses])
@@ -100,6 +124,8 @@
  (fn [db [_ value]]
    (assoc db :presses [])))
 
+
+
 (re-frame/reg-event-db
  ::set-current-key
  (fn [db [_ value]]
@@ -107,11 +133,15 @@
           :current-key value
           :cursor-pos (if (= value (nth (:text db) (:cursor-pos db)))
                         (do (re-frame/dispatch [::insert-press (js/Date.now) value])
+                            (re-frame/dispatch [::update-key-map (js/Date.now) value])
+                            (re-frame/dispatch [::insert-time (js/Date.now)])
                             (if (= "" (apply str (drop (inc (:cursor-pos db)) ; are we at the end?
                                                        (:text db))))
                               (do (re-frame/dispatch [::set-text (:text2 db)])
                                   (re-frame/dispatch [::set-text2 (rand-text 4)])
-                                  (re-frame/dispatch [::analyze-prob-keys (:presses db)])
+                                  (re-frame/dispatch [::analyze-prob-keys
+                                                      (subvec (:presses db) (- (count (:presses db)) (min (count (:presses db)) 1000)))
+                                                      (vec (take 1000 (:presses db)))])
                                   (re-frame/dispatch [::set-words 
                                                       (words/must-include
                                                        words/common-words

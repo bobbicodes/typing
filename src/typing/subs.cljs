@@ -13,6 +13,16 @@
    (:text2 db)))
 
 (re-frame/reg-sub
+ ::last-press
+ (fn [db]
+   (:last-press db)))
+
+(re-frame/reg-sub
+ ::key-map
+ (fn [db]
+   (:key-map db)))
+
+(re-frame/reg-sub
  ::cursor-pos
  (fn [db]
    (:cursor-pos db)))

@@ -23,6 +23,8 @@
    :current-key ""
    :cursor-pos 0
    :presses []
+   :last-press 0
+   :key-map {}
    :ave-wpm 0
    :prob-keys []
    :words words/common-words})

@@ -25,67 +25,515 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
 cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
-(["-" 948]
- ["z" 379]
- ["p" 369]
- ["b" 347]
- ["k" 342]
- ["d" 342]
- ["q" 329]
- ["g" 329]
- ["y" 323]
- ["t" 321]
- ["x" 317]
- ["e" 314]
- ["h" 307]
- ["a" 307]
- ["w" 306]
- ["c" 304]
- ["m" 304]
- ["f" 295]
- ["i" 295]
- ["s" 287]
- ["u" 276]
- ["l" 271]
- ["o" 269]
- ["v" 264]
- ["n" 259]
- ["r" 253]
- [" " 223])
+1625450035826
 cljs꞉typing.events꞉> 
-"observation stroke emphasize inspire "
+{:y [0 0],
+ :q [0 0],
+ :r [0 0],
+ :v [0 0],
+ :o [0 0],
+ :n [0 0],
+ :w [0 0],
+ :m [0 0],
+ :e [0 0],
+ :s [0 0],
+ :l [0 0],
+ :k [0 0],
+ :z [0 0],
+ :g [0 0],
+ :c [0 0],
+ :j [0 0],
+ :h [0 0],
+ :b [0 0],
+ :d [0 0],
+ :f [0 0],
+ :t [0 0],
+ :x [0 0],
+ :p [0 0],
+ :i [0 0],
+ :a [0 0],
+ :u [0 0]}
 cljs꞉typing.events꞉> 
-(["-" 948]
- ["z" 379]
- ["p" 369]
- ["b" 347]
- ["k" 342]
- ["d" 342]
- ["q" 329]
- ["g" 329]
- ["y" 323]
- ["t" 321]
- ["x" 317]
- ["e" 314]
- ["h" 307]
- ["a" 307]
- ["w" 306]
- ["c" 304]
- ["m" 304]
- ["f" 295]
- ["i" 295]
- ["s" 287]
- ["u" 276]
- ["l" 271]
- ["o" 269]
- ["v" 264]
- ["n" 259]
- ["r" 253]
- [" " 223])
+{:y [0 0],
+ :q [0 0],
+ :r [0 0],
+ :v [0 0],
+ :o [0 0],
+ :n [0 0],
+ :w [0 0],
+ :m [0 0],
+ :e [0 0],
+ :s [0 0],
+ :l [0 0],
+ :k [0 0],
+ :z [0 0],
+ :g [0 0],
+ :c [0 0],
+ :j [0 0],
+ :h [0 0],
+ :b [0 0],
+ :d [0 0],
+ :f [0 0],
+ :t [0 0],
+ :x [0 0],
+ :p [0 0],
+ :i [0 0],
+ :a [0 0],
+ :u [0 0]}
 cljs꞉typing.events꞉> 
-[]
+{:y [0 0],
+ :q [0 0],
+ :r [0 0],
+ :v [0 0],
+ :o [0 0],
+ :n [0 0],
+ :w [0 0],
+ :m [0 0],
+ :e [0 0],
+ :s [0 0],
+ :l [0 0],
+ :k [0 0],
+ :z [0 0],
+ :g [0 0],
+ :c [0 0],
+ :j [0 0],
+ :h [0 0],
+ :b [0 0],
+ :d [0 0],
+ :f [0 0],
+ :t [0 0],
+ :x [0 0],
+ :p [0 0],
+ :i [0 0],
+ :a [0 0],
+ :u [0 0]}
 cljs꞉typing.events꞉> 
-()
+[{:time 1625450549481, :key "a"}
+ {:time 1625450549654, :key " "}
+ {:time 1625450549938, :key "i"}
+ {:time 1625450550102, :key "n"}
+ {:time 1625450550329, :key "t"}
+ {:time 1625450550559, :key "e"}
+ {:time 1625450550703, :key "r"}
+ {:time 1625450551007, :key "v"}
+ {:time 1625450551228, :key "i"}
+ {:time 1625450551509, :key "e"}
+ {:time 1625450551807, :key "w"}
+ {:time 1625450576670, :key " "}
+ {:time 1625450576920, :key "u"}
+ {:time 1625450577147, :key "s"}
+ {:time 1625450577381, :key "u"}
+ {:time 1625450577988, :key "a"}
+ {:time 1625450578602, :key "l"}
+ {:time 1625450578779, :key "l"}
+ {:time 1625450578963, :key "y"}
+ {:time 1625450579129, :key " "}
+ {:time 1625450579371, :key "c"}
+ {:time 1625450579582, :key "o"}
+ {:time 1625450579802, :key "m"}
+ {:time 1625450579999, :key "m"}
+ {:time 1625450580214, :key "a"}
+ {:time 1625450580404, :key "n"}
+ {:time 1625450580609, :key "d"}
+ {:time 1625450581006, :key " "}
+ {:time 1625450581316, :key "i"}
+ {:time 1625450581460, :key "n"}
+ {:time 1625450581688, :key "t"}
+ {:time 1625450581898, :key "e"}
+ {:time 1625450582123, :key "n"}
+ {:time 1625450582475, :key "s"}
+ {:time 1625450582794, :key "e"}
+ {:time 1625450582937, :key " "}
+ {:time 1625450583260, :key "s"}
+ {:time 1625450583579, :key "p"}
+ {:time 1625450583923, :key "e"}
+ {:time 1625450584117, :key "a"}
+ {:time 1625450584372, :key "k"}
+ {:time 1625450584582, :key " "}
+ {:time 1625450584787, :key "u"}
+ {:time 1625450585065, :key "n"}
+ {:time 1625450585335, :key "i"}
+ {:time 1625450585573, :key "f"}
+ {:time 1625450585771, :key "o"}
+ {:time 1625450585893, :key "r"}
+ {:time 1625450586213, :key "m"}
+ {:time 1625450586413, :key " "}
+ ...]
 cljs꞉typing.events꞉> 
-("extensive" "joint" "overall" "directly")
+#'typing.events/speed-map
 cljs꞉typing.events꞉> 
+{:y [184 1],
+ :q [0 0],
+ :r [266 2],
+ :v [304 1],
+ :o [409 2],
+ :n [1001 5],
+ :w [298 1],
+ :m [737 3],
+ :e [1384 5],
+ :s [902 3],
+ :l [1128 3],
+ :k [548 2],
+ :z [0 0],
+ :g [0 0],
+ :c [530 2],
+ :j [0 0],
+ :h [0 0],
+ :b [245 1],
+ :d [205 1],
+ :f [238 1],
+ :t [455 2],
+ :x [0 0],
+ :p [319 1],
+ :i [1085 4],
+ :a [1297 4],
+ :u [689 3]}
+cljs꞉typing.events꞉> 
+#'typing.events/mydb
+cljs꞉typing.events꞉> 
+{:last-press 0, :key-map {:a [801312 2]}}
+cljs꞉typing.events꞉> 
+nil
+cljs꞉typing.views꞉> 
+{}
+cljs꞉typing.views꞉> 
+{}
+cljs꞉typing.views꞉> 
+{}
+cljs꞉typing.views꞉> 
+{}
+cljs꞉typing.views꞉> 
+{"d" [308 1],
+ "n" [1293 4],
+ "w" [269 1],
+ "s" [449 2],
+ "e" [1625451818111 8],
+ "x" [190 1],
+ "v" [951 1],
+ "a" [1229 5],
+ "t" [660 3],
+ "i" [1802 7],
+ "r" [992 5],
+ "g" [627 2],
+ "l" [681 3],
+ "m" [653 3],
+ " " [1261 8],
+ "o" [1042 3],
+ "c" [362 2]}
+cljs꞉typing.views꞉> 
+[{:time 1625451816144, :key "e"}
+ {:time 1625451816335, :key "x"}
+ {:time 1625451816612, :key "i"}
+ {:time 1625451816866, :key "s"}
+ {:time 1625451817135, :key "t"}
+ {:time 1625451817282, :key " "}
+ {:time 1625451817452, :key "c"}
+ {:time 1625451817709, :key "a"}
+ {:time 1625451817920, :key "r"}
+ {:time 1625451818150, :key "e"}
+ {:time 1625451818318, :key "e"}
+ {:time 1625451818473, :key "r"}
+ {:time 1625451818596, :key " "}
+ {:time 1625451818780, :key "m"}
+ {:time 1625451819150, :key "e"}
+ {:time 1625451819370, :key "a"}
+ {:time 1625451819601, :key "l"}
+ {:time 1625451819782, :key " "}
+ {:time 1625451820018, :key "l"}
+ {:time 1625451820602, :key "e"}
+ {:time 1625451820952, :key "g"}
+ {:time 1625451821225, :key "i"}
+ {:time 1625451821427, :key "t"}
+ {:time 1625451821625, :key "i"}
+ {:time 1625451821880, :key "m"}
+ {:time 1625451822104, :key "a"}
+ {:time 1625451822293, :key "t"}
+ {:time 1625451822464, :key "e"}
+ {:time 1625451822582, :key " "}
+ {:time 1625451822852, :key "w"}
+ {:time 1625451823458, :key "o"}
+ {:time 1625451823820, :key "n"}
+ {:time 1625451824128, :key "d"}
+ {:time 1625451824327, :key "e"}
+ {:time 1625451824491, :key "r"}
+ {:time 1625451824626, :key " "}
+ {:time 1625451825577, :key "v"}
+ {:time 1625451825863, :key "i"}
+ {:time 1625451826059, :key "s"}
+ {:time 1625451826349, :key "i"}
+ {:time 1625451826569, :key "o"}
+ {:time 1625451826818, :key "n"}
+ {:time 1625451827014, :key " "}
+ {:time 1625451827231, :key "o"}
+ {:time 1625451827471, :key "r"}
+ {:time 1625451827781, :key "a"}
+ {:time 1625451828221, :key "n"}
+ {:time 1625451828499, :key "g"}
+ {:time 1625451828743, :key "e"}
+ {:time 1625451828879, :key " "}
+ ...]
+cljs꞉typing.views꞉> 
+59
+cljs꞉typing.views꞉> 
+cljs.core/PersistentVector
+cljs꞉typing.views꞉> 
+:repl/exception!
+; 
+; Execution error (Error) at (<cljs repl>:1).
+function (meta,cnt,shift,root,tail,__hash){
+this.meta = meta;
+this.cnt = cnt;
+this.shift = shift;
+this.root = root;
+this.tail = tail;
+this.__hash = __hash;
+this.cljs$lang$protocol_mask$partition0$ = 167666463;
+this.cljs$lang$protocol_mask$partition1$ = 139268;
+} is not ISeqable
+cljs꞉typing.views꞉> 
+[{:time 1625451816144, :key "e"}
+ {:time 1625451816335, :key "x"}
+ {:time 1625451816612, :key "i"}
+ {:time 1625451816866, :key "s"}
+ {:time 1625451817135, :key "t"}
+ {:time 1625451817282, :key " "}
+ {:time 1625451817452, :key "c"}
+ {:time 1625451817709, :key "a"}
+ {:time 1625451817920, :key "r"}
+ {:time 1625451818150, :key "e"}
+ {:time 1625451818318, :key "e"}
+ {:time 1625451818473, :key "r"}
+ {:time 1625451818596, :key " "}
+ {:time 1625451818780, :key "m"}
+ {:time 1625451819150, :key "e"}
+ {:time 1625451819370, :key "a"}
+ {:time 1625451819601, :key "l"}
+ {:time 1625451819782, :key " "}
+ {:time 1625451820018, :key "l"}
+ {:time 1625451820602, :key "e"}
+ {:time 1625451820952, :key "g"}
+ {:time 1625451821225, :key "i"}
+ {:time 1625451821427, :key "t"}
+ {:time 1625451821625, :key "i"}
+ {:time 1625451821880, :key "m"}
+ {:time 1625451822104, :key "a"}
+ {:time 1625451822293, :key "t"}
+ {:time 1625451822464, :key "e"}
+ {:time 1625451822582, :key " "}
+ {:time 1625451822852, :key "w"}
+ {:time 1625451823458, :key "o"}
+ {:time 1625451823820, :key "n"}
+ {:time 1625451824128, :key "d"}
+ {:time 1625451824327, :key "e"}
+ {:time 1625451824491, :key "r"}
+ {:time 1625451824626, :key " "}
+ {:time 1625451825577, :key "v"}
+ {:time 1625451825863, :key "i"}
+ {:time 1625451826059, :key "s"}
+ {:time 1625451826349, :key "i"}
+ {:time 1625451826569, :key "o"}
+ {:time 1625451826818, :key "n"}
+ {:time 1625451827014, :key " "}
+ {:time 1625451827231, :key "o"}
+ {:time 1625451827471, :key "r"}
+ {:time 1625451827781, :key "a"}
+ {:time 1625451828221, :key "n"}
+ {:time 1625451828499, :key "g"}
+ {:time 1625451828743, :key "e"}
+ {:time 1625451828879, :key " "}
+ ...]
+cljs꞉typing.views꞉> 
+[{:time 1625451816144, :key "e"}
+ {:time 1625451816335, :key "x"}
+ {:time 1625451816612, :key "i"}
+ {:time 1625451816866, :key "s"}
+ {:time 1625451817135, :key "t"}
+ {:time 1625451817282, :key " "}
+ {:time 1625451817452, :key "c"}
+ {:time 1625451817709, :key "a"}
+ {:time 1625451817920, :key "r"}
+ {:time 1625451818150, :key "e"}
+ {:time 1625451818318, :key "e"}
+ {:time 1625451818473, :key "r"}
+ {:time 1625451818596, :key " "}
+ {:time 1625451818780, :key "m"}
+ {:time 1625451819150, :key "e"}
+ {:time 1625451819370, :key "a"}
+ {:time 1625451819601, :key "l"}
+ {:time 1625451819782, :key " "}
+ {:time 1625451820018, :key "l"}
+ {:time 1625451820602, :key "e"}
+ {:time 1625451820952, :key "g"}
+ {:time 1625451821225, :key "i"}
+ {:time 1625451821427, :key "t"}
+ {:time 1625451821625, :key "i"}
+ {:time 1625451821880, :key "m"}
+ {:time 1625451822104, :key "a"}
+ {:time 1625451822293, :key "t"}
+ {:time 1625451822464, :key "e"}
+ {:time 1625451822582, :key " "}
+ {:time 1625451822852, :key "w"}
+ {:time 1625451823458, :key "o"}
+ {:time 1625451823820, :key "n"}
+ {:time 1625451824128, :key "d"}
+ {:time 1625451824327, :key "e"}
+ {:time 1625451824491, :key "r"}
+ {:time 1625451824626, :key " "}
+ {:time 1625451825577, :key "v"}
+ {:time 1625451825863, :key "i"}
+ {:time 1625451826059, :key "s"}
+ {:time 1625451826349, :key "i"}
+ {:time 1625451826569, :key "o"}
+ {:time 1625451826818, :key "n"}
+ {:time 1625451827014, :key " "}
+ {:time 1625451827231, :key "o"}
+ {:time 1625451827471, :key "r"}
+ {:time 1625451827781, :key "a"}
+ {:time 1625451828221, :key "n"}
+ {:time 1625451828499, :key "g"}
+ {:time 1625451828743, :key "e"}
+ {:time 1625451828879, :key " "}
+ ...]
+cljs꞉typing.views꞉> 
+[{:time 1625451816144, :key "e"}
+ {:time 1625451816335, :key "x"}
+ {:time 1625451816612, :key "i"}
+ {:time 1625451816866, :key "s"}
+ {:time 1625451817135, :key "t"}
+ {:time 1625451817282, :key " "}
+ {:time 1625451817452, :key "c"}
+ {:time 1625451817709, :key "a"}
+ {:time 1625451817920, :key "r"}
+ {:time 1625451818150, :key "e"}
+ {:time 1625451818318, :key "e"}
+ {:time 1625451818473, :key "r"}
+ {:time 1625451818596, :key " "}
+ {:time 1625451818780, :key "m"}
+ {:time 1625451819150, :key "e"}
+ {:time 1625451819370, :key "a"}
+ {:time 1625451819601, :key "l"}
+ {:time 1625451819782, :key " "}
+ {:time 1625451820018, :key "l"}
+ {:time 1625451820602, :key "e"}
+ {:time 1625451820952, :key "g"}
+ {:time 1625451821225, :key "i"}
+ {:time 1625451821427, :key "t"}
+ {:time 1625451821625, :key "i"}
+ {:time 1625451821880, :key "m"}
+ {:time 1625451822104, :key "a"}
+ {:time 1625451822293, :key "t"}
+ {:time 1625451822464, :key "e"}
+ {:time 1625451822582, :key " "}
+ {:time 1625451822852, :key "w"}
+ {:time 1625451823458, :key "o"}
+ {:time 1625451823820, :key "n"}
+ {:time 1625451824128, :key "d"}
+ {:time 1625451824327, :key "e"}
+ {:time 1625451824491, :key "r"}
+ {:time 1625451824626, :key " "}
+ {:time 1625451825577, :key "v"}
+ {:time 1625451825863, :key "i"}
+ {:time 1625451826059, :key "s"}
+ {:time 1625451826349, :key "i"}
+ {:time 1625451826569, :key "o"}
+ {:time 1625451826818, :key "n"}
+ {:time 1625451827014, :key " "}
+ {:time 1625451827231, :key "o"}
+ {:time 1625451827471, :key "r"}
+ {:time 1625451827781, :key "a"}
+ {:time 1625451828221, :key "n"}
+ {:time 1625451828499, :key "g"}
+ {:time 1625451828743, :key "e"}
+ {:time 1625451828879, :key " "}
+ ...]
+cljs꞉typing.views꞉> 
+89
+cljs꞉typing.views꞉> 
+nil
+; ------ WARNING - :fn-arity -----------------------------------------------------
+;  Resource: <eval>:2:3
+ Wrong number of args (1) passed to cljs.core/subvec
+--------------------------------------------------------------------------------
+
+cljs꞉typing.views꞉> 
+[{:time 1625459546387, :key "n"}
+ {:time 1625459546758, :key "c"}
+ {:time 1625459547159, :key "l"}
+ {:time 1625459547572, :key "e"}
+ {:time 1625459547679, :key " "}
+ {:time 1625459547904, :key "a"}
+ {:time 1625459548188, :key "w"}
+ {:time 1625459548626, :key "f"}
+ {:time 1625459549144, :key "u"}
+ {:time 1625459549510, :key "l"}]
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+nil
+; No available JS runtime.
+; See https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshooting
+cljs꞉typing.views꞉> 
+19
+cljs꞉typing.views꞉> 
+[{:time 1625460364142, :key "a"}
+ {:time 1625460364372, :key "p"}
+ {:time 1625460364598, :key "p"}
+ {:time 1625460364833, :key "e"}
+ {:time 1625460364844, :key "a"}
+ {:time 1625460365303, :key "r"}
+ {:time 1625460365671, :key "a"}
+ {:time 1625460365895, :key "n"}
+ {:time 1625460366176, :key "c"}
+ {:time 1625460366423, :key "e"}]
+cljs꞉typing.views꞉> 
+:repl/exception!
+; 
+; Execution error (Error) at (<cljs repl>:1).
+Index out of bounds
+cljs꞉typing.views꞉> 
+[{:time 1625460360943, :key "a"}
+ {:time 1625460361272, :key "n"}
+ {:time 1625460361446, :key "n"}
+ {:time 1625460361660, :key "o"}
+ {:time 1625460362151, :key "u"}
+ {:time 1625460362542, :key "n"}
+ {:time 1625460363063, :key "c"}
+ {:time 1625460363536, :key "e"}
+ {:time 1625460363839, :key " "}
+ {:time 1625460364142, :key "a"}
+ {:time 1625460364372, :key "p"}
+ {:time 1625460364598, :key "p"}
+ {:time 1625460364833, :key "e"}
+ {:time 1625460364844, :key "a"}
+ {:time 1625460365303, :key "r"}
+ {:time 1625460365671, :key "a"}
+ {:time 1625460365895, :key "n"}
+ {:time 1625460366176, :key "c"}
+ {:time 1625460366423, :key "e"}]
+cljs꞉typing.views꞉> 
