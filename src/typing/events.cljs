@@ -124,12 +124,25 @@
  (fn [db [_ value]]
    (assoc db :presses [])))
 
-
+(re-frame/reg-event-db
+ ::update-high-speed
+ (fn [db [_ value]]
+   (assoc db :high-speed value)))
 
 (re-frame/reg-event-db
  ::set-current-key
  (fn [db [_ value]]
+   (let [presses (subvec (vec (map :time (:presses db)))
+                         (max 0 (- (count (:presses db)) 50)))
+         deltas (remove #(> % 5000)
+                        (for [x (range (dec (count presses)))]
+                          (- (nth presses (inc x))
+                             (nth presses x))))
+         moving-ave (.round js/Math  (* 60 (/ (/ 1000 (/ (reduce + deltas)
+                                              (count deltas)))
+                                   5)))]
    (assoc db
+          :high-speed (max (:high-speed db) moving-ave)
           :current-key value
           :cursor-pos (if (= value (nth (:text db) (:cursor-pos db)))
                         (do (re-frame/dispatch [::insert-press (js/Date.now) value])
@@ -149,7 +162,7 @@
                                                                                        (:prob-keys db))))))])
                                   0) ; reset counter and update text
                               (inc (:cursor-pos db))))
-                        (:cursor-pos db)))))
+                        (:cursor-pos db))))))
 
 (re-frame/reg-event-db
  ::advance-cursor

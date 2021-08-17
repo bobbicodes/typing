@@ -26,6 +26,7 @@
    :last-press 0
    :key-map {}
    :ave-wpm 0
+   :high-speed 0
    :prob-keys []
    :words words/common-words})
 

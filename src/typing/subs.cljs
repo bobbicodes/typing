@@ -18,6 +18,11 @@
    (:last-press db)))
 
 (re-frame/reg-sub
+ ::high-speed
+ (fn [db]
+   (:high-speed db)))
+
+(re-frame/reg-sub
  ::key-map
  (fn [db]
    (:key-map db)))

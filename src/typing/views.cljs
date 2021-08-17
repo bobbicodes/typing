@@ -177,6 +177,7 @@
         times (re-frame/subscribe [::subs/times])
         prob-keys (re-frame/subscribe [::subs/prob-keys])
         moving-ave (re-frame/subscribe [::subs/moving-ave])
+        high-speed (re-frame/subscribe [::subs/high-speed])
         all-time-ave (re-frame/subscribe [::subs/all-time-ave])]
     [:div [:center
            [gauge]
@@ -187,6 +188,7 @@
       [:p (str "Keypresses analyzed: " (count @presses))]
       [:p (str "Total time: " (fmt-time @total))]
       [:p (str "Average: " @all-time-ave " wpm")]
+      [:p (str "High speed: " @high-speed " wpm")]
       [:div
        [:span "Problem keys (ave. ms): "]
        [:span (interpose ", " (for [key (take 4 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
