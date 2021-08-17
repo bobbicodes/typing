@@ -2,9 +2,9 @@
 
 A [re-frame](https://github.com/day8/re-frame) application for learning typing.
 
-The app analyzes your keystrokes and identifies your "problem keys", then chooses words that include those letters.
+The app analyzes your keystrokes and identifies your "problem keys", then targets them without being annoying. All you type are actual common English words.
 
-[Try it](https://porkostomus.github.io/typing/)
+[Try the live demo](https://porkostomus.github.io/typing/)
 
 ## Rationale (why did I make this?)
 
