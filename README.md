@@ -1,6 +1,6 @@
 # Re-pressed Text
 
-A [re-frame](https://github.com/day8/re-frame) application for learning typing.
+A [re-frame](https://github.com/day8/re-frame) application for improving typing speed.
 
 The app analyzes your keystrokes and identifies your "problem keys", then targets them without being annoying. All you type are actual common English words.
 
