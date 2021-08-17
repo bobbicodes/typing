@@ -2,7 +2,7 @@
 
 A [re-frame](https://github.com/day8/re-frame) application for improving typing speed.
 
-The app analyzes your keystrokes and identifies your "problem keys", then targets them without being annoying. All you type are actual common English words.
+The app analyzes your keystrokes and identifies your "problem keys", then targets them without being annoying. All you type are actual common English words. Every now and then it nearly qualifies as AI-generated poetry.
 
 [Try the live demo](https://porkostomus.github.io/typing/)
 
