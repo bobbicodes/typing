@@ -178,7 +178,8 @@
         prob-keys (re-frame/subscribe [::subs/prob-keys])
         moving-ave (re-frame/subscribe [::subs/moving-ave])
         high-speed (re-frame/subscribe [::subs/high-speed])
-        all-time-ave (re-frame/subscribe [::subs/all-time-ave])]
+        all-time-ave (re-frame/subscribe [::subs/all-time-ave])
+        errors (re-frame/subscribe [::subs/errors])]
     [:div [:center
            [gauge]
            [:h3 (str @moving-ave " wpm")]
@@ -192,5 +193,9 @@
       [:div
        [:span "Problem keys (ave. ms): "]
        [:span (interpose ", " (for [key (take 4 (filter #(contains? lowercase-letters (first %)) @prob-keys))]
-                                (str (first key) " - " (last key))))]]]]))
+                                (str (first key) " - " (last key))))]
+       [:p (str "Errors: " @errors "  ("
+                (.round js/Math (* 100 (/ @errors (+ (count @presses) @errors))))
+                "%)")]]]]))
 
+(/ 5 41)

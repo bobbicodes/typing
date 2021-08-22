@@ -28,6 +28,7 @@
    :ave-wpm 0
    :high-speed 0
    :prob-keys []
+   :errors 0
    :words words/common-words})
 
 (def ls-key "presses-reframe")                         ;; localstore key

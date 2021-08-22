@@ -53,6 +53,11 @@
    (:words db)))
 
 (re-frame/reg-sub
+ ::errors
+ (fn [db]
+   (:errors db)))
+
+(re-frame/reg-sub
  ::deltas
  (fn [db]
    (let [presses (vec (map :time (:presses db)))]

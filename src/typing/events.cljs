@@ -130,6 +130,11 @@
    (assoc db :high-speed value)))
 
 (re-frame/reg-event-db
+ ::inc-errors
+ (fn [db [_ value]]
+   (update db :errors inc)))
+
+(re-frame/reg-event-db
  ::set-current-key
  (fn [db [_ value]]
    (let [presses (subvec (vec (map :time (:presses db)))
@@ -162,7 +167,9 @@
                                                                                        (:prob-keys db))))))])
                                   0) ; reset counter and update text
                               (inc (:cursor-pos db))))
-                        (:cursor-pos db))))))
+                        (do
+                          (re-frame/dispatch [::inc-errors])
+                          (:cursor-pos db)))))))
 
 (re-frame/reg-event-db
  ::advance-cursor
