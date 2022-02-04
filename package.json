@@ -1,15 +1,62 @@
 {
-	"name": "typing",
-	"scripts": {
-		"watch": "npx shadow-cljs watch app browser-test karma-test",
-		"release": "npx shadow-cljs release app",
-		"build-report": "npx shadow-cljs run shadow.cljs.build-report app target/build-report.html"
-	},
-	"dependencies": {
-		"react": "17.0.1",
-		"react-dom": "17.0.1"
-	},
-	"devDependencies": {
-		"shadow-cljs": "2.12.5"
-	}
+  "name": "typomaniac",
+  "version": "0.0.2",
+  "description": "Clojurescript app for improving your typing",
+  "main": "resources/main.js",
+  "scripts": {
+    "dev": "shadow-cljs watch main renderer",
+    "build": "shadow-cljs compile main renderer",
+    "clean": "rm -rf resources/public/js/* && rm -rf target",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "keywords": [
+    "shadow-cljs",
+    "reagent",
+    "electron"
+  ],
+  "author": "Bobby Towers <porkostomus@mail.com>",
+  "license": "EPL",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "shadow-cljs": "^2.16.12"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^16.0.8"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "shadow_electron_starter"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }

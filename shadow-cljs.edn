@@ -1,29 +1,17 @@
-{:nrepl {:port 8777}
+;; shadow-cljs configuration
+{:source-paths ["src"]
 
- 
+ :dependencies [[reagent "1.1.0"]
+                [re-frame "1.2.0"]
+                [re-pressed "0.3.1"]]
 
- :source-paths ["src" "test"]
+ :dev-http {8080 "resources/public/"}
 
- :dependencies
- [[reagent "1.1.0"]
-  [re-frame "1.2.0"]
-  [re-pressed "0.3.1"]
-  [binaryage/devtools "1.0.3"]]
+ :builds {:main {:target :node-script
+                 :output-to "resources/main.js"
+                 :main app.main.core/main}
 
- :dev-http
- {8280 "resources/public"
-  8290 "target/browser-test"}
-
- :builds
- {:app
-  {:target     :browser
-   :output-dir "resources/public/js/compiled"
-   :asset-path "/js/compiled"
-   :modules
-   {:app {:init-fn typing.core/init}}
-   :devtools
-   {:preloads []}
-   :dev
-   {:compiler-options
-    {:closure-defines
-     { }}}}}}
+          :renderer {:target :browser
+                     :output-dir "resources/public/js"
+                     :asset-path "js"
+                     :modules {:renderer {:init-fn app.renderer.core/start!}}}}}
