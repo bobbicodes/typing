@@ -21,6 +21,11 @@ I don't have proper internet now, and was not able to find a typing app that was
 * Display on-screen keyboard with customizable layout
 
 ## How to Run
+
+[Download latest release](https://github.com/porkostomus/typing/releases/tag/v0.0.3)
+
+## Local dev
+
 ```
 npm install
 
