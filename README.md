@@ -1,4 +1,4 @@
-# Re-pressed Text
+# Typomaniac
 
 A [re-frame](https://github.com/day8/re-frame) application for improving typing speed.
 
@@ -20,6 +20,18 @@ I don't have proper internet now, and was not able to find a typing app that was
 * Create data persistance and ways to visualize progress
 * Display on-screen keyboard with customizable layout
 
+## How to Run
+```
+npm install
+
+npm run dev
+npx electron .
+```
+## Release
+```
+npm run build
+npx electron-packager . HelloWorld --platform=darwin --arch=x64
+```
 
 ## Getting Started
 
