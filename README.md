@@ -4,7 +4,7 @@ A [re-frame](https://github.com/day8/re-frame) application for improving typing 
 
 The app analyzes your keystrokes and identifies your "problem keys", then targets them without being annoying. All you type are actual common English words. Every now and then it nearly qualifies as AI-generated poetry.
 
-[Try the live demo](https://porkostomus.github.io/typing/)
+[Try the live demo](https://btowerscoding.github.io/typing/)
 
 ## Rationale (why did I make this?)
 
@@ -22,7 +22,7 @@ I don't have proper internet now, and was not able to find a typing app that was
 
 ## How to Run
 
-[Download latest release](https://github.com/porkostomus/typing/releases/tag/v0.0.3)
+[Download latest release](https://github.com/btowerscoding/typing/releases/tag/v0.0.3)
 
 ## Local dev
 
