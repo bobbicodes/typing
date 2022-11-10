@@ -8,10 +8,18 @@ The app analyzes your keystrokes and identifies your "problem keys", then target
 
 ## Rationale (why did I make this?)
 
-I don't have proper internet now, and was not able to find a typing app that was:
+I was in the wilderness slowly recovering from COVID without internet access, and was not able to find a typing app that was:
 * decent
 * free
 * works offline.
+
+It was a really fun challenge making it without being able to ever google anything! 
+No, I mean it. Actually, unironically fun. Highly recommend it. Unless, you know, you have a deadline.
+
+I was previously using keybr when I had internet, but unfortunately once you finish "mastering" all the keys,
+it stops feeding you words based on the ones with which you need the most practice!
+I made sure to get this part right, I wanted it to always be helping me to improve,
+but it does it in a gentle way by just making sure that each word contains at least one of your "problem keys".
 
 ## Goals
 
